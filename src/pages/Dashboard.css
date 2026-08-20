@@ -15,9 +15,12 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+
   background-color: #0d1117;
   color: #e6edf3;
+
   font-family: Arial, Helvetica, sans-serif;
+
   overflow-x: hidden;
 }
 
@@ -60,6 +63,7 @@ body {
   font-size: clamp(2rem, 3vw, 4rem);
 
   color: #f0f6fc;
+
   text-align: center;
   line-height: 1.2;
 }
@@ -103,6 +107,7 @@ p {
   justify-content: space-between;
 
   background-color: #161b22;
+
   border: 1px solid #30363d;
 
   padding: 45px 60px;
@@ -126,6 +131,7 @@ p {
   padding: 18px 35px;
 
   font-size: clamp(1.5rem, 3vw, 3rem);
+
   text-align: center;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
@@ -279,7 +285,9 @@ p {
 }
 
 
-/* Scrollbar */
+/* =========================================================
+   ATTENTION LIST SCROLLBAR
+========================================================= */
 
 .attentionList::-webkit-scrollbar {
   width: 7px;
@@ -397,6 +405,11 @@ button:active {
   gap: 45px;
 }
 
+
+/* =========================================================
+   REVIEW METRICS CARD
+========================================================= */
+
 .avg-revContainer {
   width: 55%;
   min-height: 330px;
@@ -422,35 +435,6 @@ button:active {
   line-height: 1.5;
 
   margin: 5px 0;
-}
-
-.reviewersContainer {
-  width: 35%;
-  min-height: 330px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-
-  background-color: #161b22;
-
-  padding: 35px;
-
-  border: 1px solid #30363d;
-  border-radius: 8px;
-
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-  overflow-wrap: anywhere;
-}
-
-.reviewersContainer > h3 {
-  margin: 5px 0;
-}
-
-.reviewersContainer > p {
-  text-align: center;
 }
 
 
@@ -497,30 +481,124 @@ button:active {
 
 
 /* =========================================================
-   TOP REVIEWERS
-   Number stays inside the card
+   TOP REVIEWERS CARD
 ========================================================= */
 
-.reviewersContainer ol {
-  width: 100%;
+.reviewersContainer {
+  width: 35%;
+  min-height: 330px;
 
-  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 
-  padding-left: 35px;
+  background-color: #161b22;
 
-  line-height: 2;
+  padding: 35px;
 
-  list-style-position: outside;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
   overflow-wrap: anywhere;
+
+  gap: 15px;
 }
 
-.reviewersContainer li {
-  padding: 3px 0;
+.reviewersContainer > h3 {
+  margin: 5px 0 0;
+}
 
-  padding-left: 5px;
+.reviewersContainer > p {
+  margin: 0;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   REVIEWER TABLE
+========================================================= */
+
+.reviewerTable {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #30363d;
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  background-color: #0d1117;
+}
+
+.reviewerTableHeader,
+.reviewerTableRow {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 70px minmax(0, 1fr) 90px;
+
+  align-items: center;
+}
+
+.reviewerTableHeader {
+  min-height: 45px;
+
+  background-color: #21262d;
+
+  border-bottom: 1px solid #30363d;
+
+  font-weight: bold;
+
+  color: #f0f6fc;
+}
+
+.reviewerTableRow {
+  min-height: 45px;
+
+  border-bottom: 1px solid #30363d;
+
+  background-color: #161b22;
+
+  transition: background-color 0.2s ease;
+}
+
+.reviewerTableRow:last-child {
+  border-bottom: none;
+}
+
+.reviewerTableRow:hover {
+  background-color: #21262d;
+}
+
+.reviewerTableHeader span,
+.reviewerTableRow span {
+  min-width: 0;
+
+  padding: 8px 10px;
 
   overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.reviewerTableHeader span:first-child,
+.reviewerTableRow span:first-child {
+  text-align: center;
+}
+
+.reviewerTableHeader span:last-child,
+.reviewerTableRow span:last-child {
+  text-align: center;
+}
+
+.reviewerTableRow span:nth-child(2) {
+  color: #c9d1d9;
 }
 
 
@@ -546,7 +624,7 @@ button:active {
 }
 
 .teamActivityInner {
-  width: 100%;
+  width: min(750px, 100%);
 
   display: flex;
   align-items: center;
@@ -558,28 +636,92 @@ button:active {
 
 .teamActivityInner h3 {
   text-align: center;
+
+  margin-bottom: 10px;
 }
 
-.teamActivityInner ol {
+
+/* =========================================================
+   AUTHOR TABLE
+========================================================= */
+
+.authorTable {
   width: 100%;
-  max-width: 500px;
 
-  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
 
-  padding-left: 35px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
 
-  line-height: 2;
+  overflow: hidden;
 
-  list-style-position: outside;
-
-  overflow-wrap: anywhere;
+  background-color: #0d1117;
 }
 
-.teamActivityInner li {
-  padding: 3px 0;
-  padding-left: 5px;
+.authorTableHeader,
+.authorTableRow {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 90px minmax(0, 1fr) 90px;
+
+  align-items: center;
+}
+
+.authorTableHeader {
+  min-height: 48px;
+
+  background-color: #21262d;
+
+  border-bottom: 1px solid #30363d;
+
+  font-weight: bold;
+
+  color: #f0f6fc;
+}
+
+.authorTableRow {
+  min-height: 48px;
+
+  border-bottom: 1px solid #30363d;
+
+  background-color: #161b22;
+
+  transition: background-color 0.2s ease;
+}
+
+.authorTableRow:last-child {
+  border-bottom: none;
+}
+
+.authorTableRow:hover {
+  background-color: #21262d;
+}
+
+.authorTableHeader span,
+.authorTableRow span {
+  min-width: 0;
+
+  padding: 8px 12px;
 
   overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.authorTableHeader span:first-child,
+.authorTableRow span:first-child {
+  text-align: center;
+}
+
+.authorTableHeader span:last-child,
+.authorTableRow span:last-child {
+  text-align: center;
+}
+
+.authorTableRow span:nth-child(2) {
+  color: #c9d1d9;
 }
 
 
@@ -648,6 +790,9 @@ button:active {
     font-size: clamp(2rem, 4vw, 3rem);
   }
 
+
+  /* ---------------- PR Overview ---------------- */
+
   .prOverviewContainer {
     min-height: 450px;
 
@@ -671,7 +816,7 @@ button:active {
   }
 
 
-  /* Attention */
+  /* ---------------- Attention ---------------- */
 
   #attentionContainer {
     padding: 40px 25px;
@@ -704,7 +849,7 @@ button:active {
   }
 
 
-  /* Review */
+  /* ---------------- Review ---------------- */
 
   .reviewHealthContainerOuter {
     padding: 40px 25px;
@@ -730,17 +875,38 @@ button:active {
     min-height: 320px;
 
     padding: 25px;
+
+    gap: 12px;
+  }
+
+  .reviewerTableHeader,
+  .reviewerTableRow {
+    grid-template-columns: 55px minmax(0, 1fr) 75px;
+  }
+
+  .reviewerTableHeader span,
+  .reviewerTableRow span {
+    padding: 7px 6px;
+
+    font-size: 0.9rem;
   }
 
 
-  /* Team */
+  /* ---------------- Team ---------------- */
 
   .teamActivityContainer {
     padding: 40px 25px;
   }
 
   .teamActivityInner {
+    width: 80%;
+
     padding: 20px;
+  }
+
+  .authorTableHeader,
+  .authorTableRow {
+    grid-template-columns: 70px minmax(0, 1fr) 75px;
   }
 }
 
@@ -763,7 +929,9 @@ button:active {
   }
 
 
-  /* PR Overview */
+  /* =======================================================
+     PR OVERVIEW
+  ======================================================= */
 
   .prOverviewContainer {
     width: 100%;
@@ -802,7 +970,9 @@ button:active {
   }
 
 
-  /* Attention */
+  /* =======================================================
+     ATTENTION
+  ======================================================= */
 
   #attentionContainer {
     width: 100%;
@@ -845,7 +1015,9 @@ button:active {
   }
 
 
-  /* Review Health */
+  /* =======================================================
+     REVIEW HEALTH
+  ======================================================= */
 
   .reviewHealthContainerOuter {
     width: 100%;
@@ -885,29 +1057,29 @@ button:active {
     margin-top: 15px;
   }
 
-  /*
-     Extra left space is kept here so
-     10, 11, 12... also stay inside.
-  */
 
-  .reviewersContainer ol {
+  /* ---------------- Reviewer Table ---------------- */
+
+  .reviewerTable {
     width: 100%;
-
-    padding-left: 35px;
-
-    margin: 10px 0;
-
-    line-height: 1.8;
-
-    list-style-position: outside;
   }
 
-  .reviewersContainer li {
-    padding-left: 3px;
+  .reviewerTableHeader,
+  .reviewerTableRow {
+    grid-template-columns: 55px minmax(0, 1fr) 70px;
+  }
+
+  .reviewerTableHeader span,
+  .reviewerTableRow span {
+    padding: 7px 6px;
+
+    font-size: 0.85rem;
   }
 
 
-  /* Team Activity */
+  /* =======================================================
+     TEAM ACTIVITY
+  ======================================================= */
 
   .teamActivityContainer {
     width: 100%;
@@ -923,22 +1095,29 @@ button:active {
     padding: 20px 15px;
   }
 
-  .teamActivityInner ol {
+
+  /* ---------------- Author Table ---------------- */
+
+  .authorTable {
     width: 100%;
-
-    padding-left: 35px;
-
-    line-height: 1.8;
-
-    list-style-position: outside;
   }
 
-  .teamActivityInner li {
-    padding-left: 3px;
+  .authorTableHeader,
+  .authorTableRow {
+    grid-template-columns: 60px minmax(0, 1fr) 65px;
+  }
+
+  .authorTableHeader span,
+  .authorTableRow span {
+    padding: 7px 6px;
+
+    font-size: 0.85rem;
   }
 
 
-  /* Error page */
+  /* =======================================================
+     ERROR PAGE
+  ======================================================= */
 
   #dashboardError {
     padding: 20px 12px;
@@ -962,7 +1141,9 @@ button:active {
   }
 
 
-  /* PR Overview */
+  /* =======================================================
+     PR OVERVIEW
+  ======================================================= */
 
   .prOverviewContainer {
     min-height: 600px;
@@ -987,7 +1168,9 @@ button:active {
   }
 
 
-  /* Attention */
+  /* =======================================================
+     ATTENTION
+  ======================================================= */
 
   #attentionContainer {
     padding: 25px 5px;
@@ -1014,7 +1197,9 @@ button:active {
   }
 
 
-  /* Review */
+  /* =======================================================
+     REVIEW
+  ======================================================= */
 
   .avg-revContainer,
   .reviewersContainer {
@@ -1033,12 +1218,25 @@ button:active {
     padding: 18px;
   }
 
-  .reviewersContainer ol {
-    padding-left: 32px;
+
+  /* ---------------- Reviewer Table ---------------- */
+
+  .reviewerTableHeader,
+  .reviewerTableRow {
+    grid-template-columns: 45px minmax(0, 1fr) 60px;
+  }
+
+  .reviewerTableHeader span,
+  .reviewerTableRow span {
+    padding: 6px 4px;
+
+    font-size: 0.78rem;
   }
 
 
-  /* Team */
+  /* =======================================================
+     TEAM
+  ======================================================= */
 
   .teamActivityInner {
     width: 98%;
@@ -1046,12 +1244,25 @@ button:active {
     padding: 15px 10px;
   }
 
-  .teamActivityInner ol {
-    padding-left: 32px;
+
+  /* ---------------- Author Table ---------------- */
+
+  .authorTableHeader,
+  .authorTableRow {
+    grid-template-columns: 45px minmax(0, 1fr) 55px;
+  }
+
+  .authorTableHeader span,
+  .authorTableRow span {
+    padding: 6px 4px;
+
+    font-size: 0.78rem;
   }
 
 
-  /* Error */
+  /* =======================================================
+     ERROR
+  ======================================================= */
 
   .dashboardErrorContainer {
     padding: 25px 15px;

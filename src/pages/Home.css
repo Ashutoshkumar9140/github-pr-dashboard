@@ -39,11 +39,9 @@ body {
 
   flex-direction: column;
 
-  padding: 55px 40px;
+  padding: 60px 25px;
 
   background-color: #0d1117;
-
-  gap: 35px;
 }
 
 
@@ -53,7 +51,24 @@ body {
 
 .homeContainer {
   width: 100%;
-  max-width: 950px;
+  max-width: 900px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-direction: column;
+
+  gap: 45px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+========================================================= */
+
+.welcomeSection {
+  width: 100%;
 
   display: flex;
   align-items: center;
@@ -61,50 +76,28 @@ body {
 
   flex-direction: column;
 
-  padding: 55px 65px;
+  gap: 10px;
 
-  gap: 30px;
-
-  background-color: #161b22;
-
-  border: 1px solid #30363d;
-  border-radius: 12px;
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 
-/* =========================================================
-   WELCOME MESSAGE
-========================================================= */
+/* Small welcome text */
 
-.welcomeMessage {
-  width: 100%;
-  max-width: 750px;
-
+.welcomeText {
   margin: 0;
-
-  padding: 15px 20px;
-
-  text-align: center;
-
-  font-size: 1.05rem;
-
-  line-height: 1.6;
 
   color: #58a6ff;
 
-  background-color: rgba(88, 166, 255, 0.08);
+  font-size: 1.05rem;
 
-  border: 1px solid #30363d;
-  border-radius: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
 }
 
 
-/* =========================================================
-   TITLE
-========================================================= */
+/* Main title */
 
 .homeTitle {
   margin: 0;
@@ -115,9 +108,9 @@ body {
     Arial,
     sans-serif;
 
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
 
-  line-height: 1.2;
+  line-height: 1.15;
 
   text-align: center;
 
@@ -127,19 +120,17 @@ body {
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+/* Short description */
 
 .homeDescription {
   width: 90%;
-  max-width: 750px;
+  max-width: 600px;
 
   margin: 0;
 
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: 1rem;
 
-  line-height: 1.7;
+  line-height: 1.5;
 
   text-align: center;
 
@@ -148,31 +139,67 @@ body {
 
 
 /* =========================================================
-   REPOSITORY INPUT AREA
+   REPOSITORY CARD
 ========================================================= */
 
 .repoInputContainer {
   width: 100%;
-  max-width: 700px;
+  max-width: 680px;
+
+  min-height: 330px;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   flex-direction: column;
 
-  gap: 20px;
+  gap: 16px;
 
-  padding: 35px;
+  padding: 38px 42px;
 
-  background-color: #21262d;
+  background-color: #161b22;
 
   border: 1px solid #30363d;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
   box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.18);
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   REPOSITORY CARD HEADING
+========================================================= */
+
+.repoInputContainer h2 {
+  margin: 0;
+
+  color: #f0f6fc;
+
+  font-size: 1.5rem;
+
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* Instruction line */
+
+.repoInputContainer > p {
+  width: 100%;
+
+  margin: 0;
+
+  color: #8b949e;
+
+  font-size: 0.95rem;
+
+  line-height: 1.5;
+
+  text-align: center;
 }
 
 
@@ -183,13 +210,13 @@ body {
 .repoInputContainer label {
   width: 100%;
 
-  margin-bottom: 2px;
+  margin-top: 5px;
 
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: #c9d1d9;
 
-  font-weight: 600;
+  font-size: 0.9rem;
 
-  color: #f0f6fc;
+  font-weight: 500;
 
   text-align: left;
 }
@@ -204,7 +231,7 @@ body {
 
   height: 52px;
 
-  padding: 0 17px;
+  padding: 0 16px;
 
   border: 1px solid #484f58;
 
@@ -223,9 +250,11 @@ body {
     box-shadow 0.2s ease;
 }
 
+
 #repoUrl::placeholder {
   color: #6e7681;
 }
+
 
 #repoUrl:focus {
   border-color: #58a6ff;
@@ -236,79 +265,22 @@ body {
 
 
 /* =========================================================
-   ANALYSIS INFO
+   ERROR SPACE
 ========================================================= */
 
-.analysisInfo {
-  width: 100%;
-
-  margin: 0;
-
-  padding: 10px 12px;
-
-  color: #8b949e;
-
-  font-size: 0.9rem;
-
-  line-height: 1.5;
-
-  text-align: center;
-
-  background-color: #161b22;
-
-  border-radius: 6px;
-}
-
-
-/* =========================================================
-   THRESHOLD INFORMATION
-========================================================= */
-
-.thresholdInfo {
-  width: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 8px;
-
-  padding: 14px 16px;
-
-  background-color: #161b22;
-
-  border: 1px solid #30363d;
-
-  border-radius: 7px;
-}
-
-.thresholdInfo p {
-  margin: 0;
-
-  color: #8b949e;
-
-  font-size: 0.9rem;
-
-  line-height: 1.5;
-
-  overflow-wrap: anywhere;
-}
-
-.thresholdInfo strong {
-  color: #c9d1d9;
-}
-
-
-/* =========================================================
-   ERROR MESSAGE
-========================================================= */
+/*
+   This area keeps the card from jumping when an error
+   appears or disappears.
+*/
 
 .errorMessage {
   width: 100%;
 
+  min-height: 42px;
+
   margin: 0;
 
-  padding: 11px 13px;
+  padding: 10px 13px;
 
   border: 1px solid #da3633;
 
@@ -318,9 +290,9 @@ body {
 
   color: #ff7b72;
 
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 
-  line-height: 1.5;
+  line-height: 1.4;
 
   overflow-wrap: anywhere;
 }
@@ -331,9 +303,11 @@ body {
 ========================================================= */
 
 .repoInputContainer button {
-  width: 180px;
+  width: 190px;
 
-  min-height: 44px;
+  height: 45px;
+
+  margin-top: 2px;
 
   border: none;
 
@@ -343,7 +317,7 @@ body {
 
   color: #ffffff;
 
-  font-size: 1rem;
+  font-size: 0.95rem;
 
   font-weight: 600;
 
@@ -355,15 +329,18 @@ body {
     opacity 0.2s ease;
 }
 
+
 .repoInputContainer button:hover {
   background-color: #2ea043;
 }
+
 
 .repoInputContainer button:active {
   background-color: #1f6f2d;
 
   transform: scale(0.98);
 }
+
 
 .repoInputContainer button:disabled {
   cursor: not-allowed;
@@ -376,29 +353,31 @@ body {
    LOADER
 ========================================================= */
 
-.loadingContainer {
+.loaderContainer {
   width: 100%;
+
+  min-height: 95px;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   flex-direction: column;
 
-  gap: 15px;
+  gap: 8px;
 
-  padding: 20px;
-
-  color: #8b949e;
+  padding-top: 4px;
 
   text-align: center;
 }
 
+
 .loader {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
 
   border: 4px solid #30363d;
+
   border-top: 4px solid #58a6ff;
 
   border-radius: 50%;
@@ -406,15 +385,27 @@ body {
   animation: spinLoader 0.9s linear infinite;
 }
 
-.loadingText {
+
+.loaderContainer p {
   margin: 0;
 
-  font-size: 0.95rem;
-
   color: #8b949e;
+
+  font-size: 0.9rem;
 }
 
+
+.loaderContainer span {
+  color: #6e7681;
+
+  font-size: 0.78rem;
+
+  line-height: 1.4;
+}
+
+
 @keyframes spinLoader {
+
   from {
     transform: rotate(0deg);
   }
@@ -422,16 +413,17 @@ body {
   to {
     transform: rotate(360deg);
   }
+
 }
 
 
 /* =========================================================
-   HOME FOOTER
+   INFORMATION SECTION
 ========================================================= */
 
-.homeFooter {
+.featuresSection {
   width: 100%;
-  max-width: 950px;
+  max-width: 780px;
 
   display: flex;
   align-items: center;
@@ -439,94 +431,82 @@ body {
 
   flex-direction: column;
 
-  gap: 25px;
+  gap: 18px;
 
-  padding: 35px 45px;
+  padding: 25px 30px;
 
   background-color: #161b22;
 
   border: 1px solid #30363d;
+
   border-radius: 10px;
 }
 
 
-/* Footer heading */
+/* Section heading */
 
-.homeFooter h2 {
+.featuresSection h2 {
   margin: 0;
 
   color: #f0f6fc;
 
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+
+  font-weight: 600;
 
   text-align: center;
 }
 
 
-/* Footer content */
+/* =========================================================
+   INFORMATION POINTS
+========================================================= */
 
-.footerInfo {
+.featuresList {
   width: 100%;
 
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
 
-  gap: 20px;
+  gap: 12px;
 }
 
 
-/* Footer cards */
-
-.footerCard {
+.featuresList div {
   width: 100%;
 
-  padding: 18px;
+  padding: 15px 18px;
 
-  background-color: #21262d;
+  background-color: #0d1117;
 
   border: 1px solid #30363d;
 
-  border-radius: 8px;
+  border-radius: 7px;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.footerCard h3 {
-  margin: 0 0 10px;
 
-  color: #f0f6fc;
+.featuresList div:hover {
+  border-color: #484f58;
 
-  font-size: 1rem;
+  transform: translateY(-2px);
 }
 
-.footerCard p {
+
+.featuresList h3 {
   margin: 0;
 
-  color: #8b949e;
+  color: #c9d1d9;
 
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 
-  line-height: 1.6;
-}
+  font-weight: 500;
 
-
-/* Footer note */
-
-.footerNote {
-  width: 100%;
-
-  margin: 0;
-
-  padding-top: 10px;
-
-  border-top: 1px solid #30363d;
-
-  color: #6e7681;
-
-  font-size: 0.85rem;
-
-  line-height: 1.6;
-
-  text-align: center;
+  line-height: 1.45;
 }
 
 
@@ -538,57 +518,27 @@ body {
 @media (min-width: 769px) and (max-width: 1024px) {
 
   #homePage {
-    padding: 40px 25px;
-
-    gap: 30px;
+    padding: 50px 25px;
   }
 
   .homeContainer {
     max-width: 850px;
 
-    padding: 45px 45px;
-
-    gap: 27px;
-  }
-
-  .welcomeMessage {
-    max-width: 700px;
-
-    font-size: 1rem;
+    gap: 40px;
   }
 
   .homeTitle {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-  }
-
-  .homeDescription {
-    width: 92%;
-
-    font-size: 1.05rem;
-
-    line-height: 1.6;
+    font-size: clamp(2.3rem, 5vw, 3.3rem);
   }
 
   .repoInputContainer {
     max-width: 650px;
 
-    padding: 28px;
-
-    gap: 17px;
+    padding: 35px;
   }
 
-  #repoUrl {
-    height: 50px;
-  }
-
-  .homeFooter {
-    max-width: 850px;
-
-    padding: 30px 35px;
-  }
-
-  .footerInfo {
-    gap: 15px;
+  .featuresSection {
+    max-width: 750px;
   }
 }
 
@@ -601,13 +551,7 @@ body {
 @media (max-width: 768px) {
 
   #homePage {
-    width: 100%;
-
-    min-height: 100vh;
-
-    padding: 30px 15px;
-
-    gap: 25px;
+    padding: 40px 15px;
   }
 
   .homeContainer {
@@ -615,21 +559,18 @@ body {
 
     max-width: 650px;
 
-    padding: 35px 22px;
-
-    gap: 24px;
-
-    border-radius: 10px;
+    gap: 32px;
   }
 
-  .welcomeMessage {
-    width: 100%;
 
-    padding: 13px 15px;
+  /* Welcome */
 
+  .welcomeSection {
+    gap: 9px;
+  }
+
+  .welcomeText {
     font-size: 0.95rem;
-
-    line-height: 1.55;
   }
 
   .homeTitle {
@@ -643,73 +584,90 @@ body {
   .homeDescription {
     width: 95%;
 
-    font-size: 1rem;
-
-    line-height: 1.6;
+    font-size: 0.95rem;
   }
+
+
+  /* Repository card */
 
   .repoInputContainer {
     width: 100%;
 
-    padding: 25px 18px;
+    min-height: 340px;
 
-    gap: 17px;
-  }
-
-  .repoInputContainer label {
-    font-size: 1rem;
-  }
-
-  #repoUrl {
-    width: 100%;
-
-    height: 49px;
-
-    font-size: 0.95rem;
-
-    padding: 0 13px;
-  }
-
-  .analysisInfo {
-    font-size: 0.85rem;
-  }
-
-  .thresholdInfo {
-    padding: 13px;
-  }
-
-  .thresholdInfo p {
-    font-size: 0.85rem;
-  }
-
-  .repoInputContainer button {
-    width: 160px;
-
-    height: 42px;
-
-    font-size: 0.95rem;
-  }
-
-  .homeFooter {
-    width: 100%;
-
-    padding: 28px 20px;
-
-    gap: 20px;
-  }
-
-  .footerInfo {
-    grid-template-columns: 1fr;
+    padding: 30px 22px;
 
     gap: 15px;
   }
 
-  .footerCard {
-    padding: 16px;
+  .repoInputContainer h2 {
+    font-size: 1.35rem;
   }
 
-  .footerCard p {
-    font-size: 0.85rem;
+  .repoInputContainer > p {
+    font-size: 0.88rem;
+  }
+
+  .repoInputContainer label {
+    font-size: 0.88rem;
+  }
+
+  #repoUrl {
+    height: 49px;
+
+    font-size: 0.94rem;
+
+    padding: 0 13px;
+  }
+
+  .errorMessage {
+    min-height: 40px;
+
+    font-size: 0.84rem;
+  }
+
+  .repoInputContainer button {
+    width: 175px;
+
+    height: 43px;
+
+    font-size: 0.92rem;
+  }
+
+
+  /* Loader */
+
+  .loaderContainer {
+    min-height: 90px;
+  }
+
+
+  /* Information */
+
+  .featuresSection {
+    width: 100%;
+
+    padding: 22px 18px;
+
+    gap: 16px;
+  }
+
+  .featuresSection h2 {
+    font-size: 1.25rem;
+  }
+
+  .featuresList {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .featuresList div {
+    padding: 14px 16px;
+  }
+
+  .featuresList h3 {
+    font-size: 0.86rem;
   }
 }
 
@@ -722,139 +680,129 @@ body {
 @media (max-width: 480px) {
 
   #homePage {
-    padding: 18px 8px;
-
-    gap: 18px;
+    padding: 30px 10px;
   }
 
   .homeContainer {
-    width: 100%;
-
-    padding: 28px 13px;
-
-    gap: 20px;
-
-    border-radius: 8px;
+    gap: 27px;
   }
 
-  .welcomeMessage {
-    padding: 12px;
 
+  /* Welcome */
+
+  .welcomeText {
     font-size: 0.88rem;
-
-    line-height: 1.5;
   }
 
   .homeTitle {
     font-size: 1.9rem;
-
-    line-height: 1.2;
   }
 
   .homeDescription {
-    width: 98%;
-
-    font-size: 0.92rem;
-
-    line-height: 1.55;
-  }
-
-  .repoInputContainer {
     width: 100%;
 
-    padding: 20px 12px;
+    font-size: 0.86rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* Repository card */
+
+  .repoInputContainer {
+    min-height: 350px;
+
+    padding: 25px 14px;
+
+    border-radius: 9px;
 
     gap: 14px;
   }
 
+  .repoInputContainer h2 {
+    font-size: 1.2rem;
+  }
+
+  .repoInputContainer > p {
+    font-size: 0.82rem;
+  }
+
   .repoInputContainer label {
-    font-size: 0.92rem;
+    font-size: 0.85rem;
   }
 
   #repoUrl {
     height: 46px;
 
-    font-size: 0.88rem;
+    font-size: 0.84rem;
 
     padding: 0 11px;
   }
 
-  .analysisInfo {
-    padding: 8px;
+
+  /* Error */
+
+  .errorMessage {
+    min-height: 40px;
+
+    padding: 9px 10px;
 
     font-size: 0.8rem;
   }
 
-  .thresholdInfo {
-    padding: 12px 10px;
 
-    gap: 7px;
-  }
-
-  .thresholdInfo p {
-    font-size: 0.8rem;
-
-    line-height: 1.5;
-  }
+  /* Button */
 
   .repoInputContainer button {
-    width: 145px;
+    width: 160px;
 
     height: 40px;
 
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
-  .errorMessage {
-    font-size: 0.82rem;
 
-    padding: 9px 10px;
-  }
+  /* Loader */
 
-  .loadingContainer {
-    padding: 15px 10px;
+  .loaderContainer {
+    min-height: 88px;
   }
 
   .loader {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
   }
 
-  .loadingText {
-    font-size: 0.85rem;
+  .loaderContainer p {
+    font-size: 0.82rem;
   }
 
-  .homeFooter {
-    width: 100%;
-
-    padding: 25px 13px;
-
-    gap: 18px;
-
-    border-radius: 8px;
+  .loaderContainer span {
+    font-size: 0.72rem;
   }
 
-  .homeFooter h2 {
-    font-size: 1.3rem;
+
+  /* Information */
+
+  .featuresSection {
+    padding: 20px 12px;
+
+    gap: 14px;
   }
 
-  .footerCard {
-    padding: 14px;
+  .featuresSection h2 {
+    font-size: 1.15rem;
   }
 
-  .footerCard h3 {
-    font-size: 0.95rem;
+  .featuresList {
+    gap: 9px;
   }
 
-  .footerCard p {
-    font-size: 0.8rem;
-
-    line-height: 1.55;
+  .featuresList div {
+    padding: 13px;
   }
 
-  .footerNote {
-    font-size: 0.78rem;
-
-    line-height: 1.5;
+  .featuresList h3 {
+    font-size: 0.82rem;
   }
 }

@@ -33,6 +33,11 @@ const Dashboard = () => {
   return (
     <div id="mainDiv">
 
+      {/* =====================================================
+          SECTION 1
+          PR OVERVIEW
+      ===================================================== */}
+
       <section className="sections">
         <div className="prOverviewContainer">
 
@@ -46,44 +51,65 @@ const Dashboard = () => {
 
           <div className="openClosedContainer">
 
+            {/* OPEN PRs */}
+
             <div className="openClosedPRs">
+
               <h3>
                 Open Pull Requests: {dashboardData.openPRs}
               </h3>
 
               <ul>
                 <li>
-                  Draft Pull Requests: {dashboardData.draftPRs}
+                  Draft Pull Requests:{" "}
+                  {dashboardData.draftPRs}
                 </li>
 
                 <li>
-                  Ready for Review: {dashboardData.readyForReviewPRs}
+                  Ready for Review:{" "}
+                  {dashboardData.readyForReviewPRs}
                 </li>
               </ul>
+
             </div>
 
+
+            {/* CLOSED PRs */}
+
             <div className="openClosedPRs">
+
               <h3>
-                Closed Pull Requests: {dashboardData.closedPRs}
+                Closed Pull Requests:{" "}
+                {dashboardData.closedPRs}
               </h3>
 
               <ul>
                 <li>
-                  Merged Pull Requests: {dashboardData.mergedPRs}
+                  Merged Pull Requests:{" "}
+                  {dashboardData.mergedPRs}
                 </li>
 
                 <li>
-                  Unmerged Pull Requests: {dashboardData.unmergedPRs}
+                  Unmerged Pull Requests:{" "}
+                  {dashboardData.unmergedPRs}
                 </li>
               </ul>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
 
+      {/* =====================================================
+          SECTION 2
+          ATTENTION NEEDED
+      ===================================================== */}
+
       <section className="sections">
+
         <div id="attentionContainer">
 
           <h2 className="sectionHeading">
@@ -91,16 +117,23 @@ const Dashboard = () => {
           </h2>
 
           <p>
-            These pull requests may need attention because of their age,
-            inactivity, or review status.
+            These pull requests may need attention because of
+            their age, inactivity, or review status.
           </p>
 
           <div id="attentionChildContainer">
 
+
+            {/* =================================================
+                STALE PRs
+            ================================================= */}
+
             <div className="attectionChild">
 
               <h3>
-                Stale Pull Requests ({dashboardData.staleDays}+ days):{" "}
+                Stale Pull Requests (
+                {dashboardData.staleDays}+ days
+                ):{" "}
                 {dashboardData.stalePRs.length}
               </h3>
 
@@ -112,11 +145,18 @@ const Dashboard = () => {
               <div className="attentionList">
 
                 {dashboardData.stalePRs.length === 0 ? (
-                  <p>No stale pull requests found.</p>
+
+                  <p>
+                    No stale pull requests found.
+                  </p>
+
                 ) : (
+
                   dashboardData.stalePRs.map((pr) => {
+
                     const now = new Date();
-                    const updatedDate = new Date(pr.updated_at);
+                    const updatedDate =
+                      new Date(pr.updated_at);
 
                     const days = (
                       (now - updatedDate) /
@@ -128,40 +168,67 @@ const Dashboard = () => {
                         key={pr.number}
                         className="attentionListChild"
                       >
-                        <p>PR no.: {pr.number}</p>
-                        <p>Title: {pr.title}</p>
-                        <p>Author: {pr.user.login}</p>
+
+                        <p>
+                          PR no.: {pr.number}
+                        </p>
+
+                        <p>
+                          Title: {pr.title}
+                        </p>
+
+                        <p>
+                          Author: {pr.user.login}
+                        </p>
+
                         <p>
                           Last updated: {days} days ago
                         </p>
+
                       </div>
                     );
                   })
+
                 )}
 
               </div>
+
             </div>
 
+
+            {/* =================================================
+                OLD OPEN PRs
+            ================================================= */}
 
             <div className="attectionChild">
 
               <h3>
-                Old Open Pull Requests ({dashboardData.prAge}+ days):{" "}
+                Old Open Pull Requests (
+                {dashboardData.prAge}+ days
+                ):{" "}
                 {dashboardData.oldOpenPRs.length}
               </h3>
 
               <p>
-                Open PRs created {dashboardData.prAge}+ days ago.
+                Open PRs created{" "}
+                {dashboardData.prAge}+ days ago.
               </p>
 
               <div className="attentionList">
 
                 {dashboardData.oldOpenPRs.length === 0 ? (
-                  <p>No old open pull requests found.</p>
+
+                  <p>
+                    No old open pull requests found.
+                  </p>
+
                 ) : (
+
                   dashboardData.oldOpenPRs.map((pr) => {
+
                     const now = new Date();
-                    const createdDate = new Date(pr.created_at);
+                    const createdDate =
+                      new Date(pr.created_at);
 
                     const days = (
                       (now - createdDate) /
@@ -173,20 +240,37 @@ const Dashboard = () => {
                         key={pr.number}
                         className="attentionListChild"
                       >
-                        <p>PR no.: {pr.number}</p>
-                        <p>Title: {pr.title}</p>
-                        <p>Author: {pr.user.login}</p>
+
+                        <p>
+                          PR no.: {pr.number}
+                        </p>
+
+                        <p>
+                          Title: {pr.title}
+                        </p>
+
+                        <p>
+                          Author: {pr.user.login}
+                        </p>
+
                         <p>
                           Created: {days} days ago
                         </p>
+
                       </div>
                     );
                   })
+
                 )}
 
               </div>
+
             </div>
 
+
+            {/* =================================================
+                NEVER REVIEWED PRs
+            ================================================= */}
 
             <div className="attectionChild">
 
@@ -196,17 +280,25 @@ const Dashboard = () => {
               </h3>
 
               <p>
-                Pull requests that have not received a review yet.
+                Pull requests that have not received
+                a review yet.
               </p>
 
               <div className="attentionList">
 
                 {dashboardData.neverReviewedPRs.length === 0 ? (
-                  <p>All pull requests have received a review.</p>
+
+                  <p>
+                    All pull requests have received a review.
+                  </p>
+
                 ) : (
+
                   dashboardData.neverReviewedPRs.map((pr) => {
+
                     const now = new Date();
-                    const createdDate = new Date(pr.created_at);
+                    const createdDate =
+                      new Date(pr.created_at);
 
                     const days = (
                       (now - createdDate) /
@@ -218,24 +310,44 @@ const Dashboard = () => {
                         key={pr.number}
                         className="attentionListChild"
                       >
-                        <p>PR no.: {pr.number}</p>
-                        <p>Title: {pr.title}</p>
-                        <p>Author: {pr.user.login}</p>
+
+                        <p>
+                          PR no.: {pr.number}
+                        </p>
+
+                        <p>
+                          Title: {pr.title}
+                        </p>
+
+                        <p>
+                          Author: {pr.user.login}
+                        </p>
+
                         <p>
                           Created: {days} days ago
                         </p>
+
                       </div>
                     );
                   })
+
                 )}
 
               </div>
+
             </div>
 
           </div>
+
         </div>
+
       </section>
 
+
+      {/* =====================================================
+          SECTION 3
+          REVIEW HEALTH
+      ===================================================== */}
 
       <section className="sections">
 
@@ -246,83 +358,200 @@ const Dashboard = () => {
           </h2>
 
           <p>
-            This section shows how quickly pull requests receive reviews
-            and how long they take to get merged.
+            This section shows how quickly pull requests
+            receive reviews and how long they take to get merged.
           </p>
 
-          <div className="reviewHealthContainerInner">
 
-            <div className="avg-revContainer">
+          {/* =================================================
+              REVIEW HEALTH METRICS
+          ================================================= */}
+
+          <div className="reviewMetricsContainer">
+
+
+            {/* FIRST REVIEW */}
+
+            <div className="reviewMetricCard">
 
               <h3>
-                Average Time to First Review:{" "}
-                {dashboardData.averageTimeToFirstReview} days
+                Average Time to First Review
               </h3>
+
+              <p className="reviewMetricValue">
+                {dashboardData.averageTimeToFirstReview}
+              </p>
+
+              <span>
+                days
+              </span>
+
+            </div>
+
+
+            {/* MERGE TIME */}
+
+            <div className="reviewMetricCard">
 
               <h3>
-                Average Time to Merge:{" "}
-                {dashboardData.averageTimeToMerge} days
+                Average Time to Merge
               </h3>
 
-              <div className="reviewContainer">
+              <p className="reviewMetricValue">
+                {dashboardData.averageTimeToMerge}
+              </p>
 
-                <h3>
-                  Review Activity
-                </h3>
+              <span>
+                days
+              </span>
 
-                <ul className="reviewContainerChild">
+            </div>
 
-                  <li>
-                    Approved:{" "}
-                    {dashboardData.reviewActivity.APPROVED}
-                  </li>
+          </div>
 
-                  <li>
-                    Changes Requested:{" "}
-                    {dashboardData.reviewActivity.CHANGES_REQUESTED}
-                  </li>
 
-                  <li>
-                    Commented:{" "}
-                    {dashboardData.reviewActivity.COMMENTED}
-                  </li>
+          {/* =================================================
+              REVIEW ACTIVITY
+          ================================================= */}
 
-                </ul>
+          <div className="reviewActivityCard">
+
+            <h3>
+              Review Activity
+            </h3>
+
+            <p>
+              Number of reviews by review type.
+            </p>
+
+            <div className="reviewActivityList">
+
+              <div className="reviewActivityItem">
+
+                <span>
+                  Approved
+                </span>
+
+                <strong>
+                  {dashboardData.reviewActivity.APPROVED}
+                </strong>
+
+              </div>
+
+
+              <div className="reviewActivityItem">
+
+                <span>
+                  Changes Requested
+                </span>
+
+                <strong>
+                  {dashboardData.reviewActivity.CHANGES_REQUESTED}
+                </strong>
+
+              </div>
+
+
+              <div className="reviewActivityItem">
+
+                <span>
+                  Commented
+                </span>
+
+                <strong>
+                  {dashboardData.reviewActivity.COMMENTED}
+                </strong>
 
               </div>
 
             </div>
 
+          </div>
 
-            <div className="reviewersContainer">
 
-              <h3>
-                Top Reviewers
-              </h3>
+          {/* =================================================
+              TOP REVIEWERS
+          ================================================= */}
+
+          <div className="topReviewersCard">
+
+            <h3>
+              Top Reviewers
+            </h3>
+
+            <p>
+              Reviewers ranked by the number of reviews
+              they submitted.
+            </p>
+
+
+            {dashboardData.top10Reviewers.length === 0 ? (
 
               <p>
-                Reviewers ranked by the number of reviews they submitted.
+                No reviewer data available.
               </p>
 
-              {dashboardData.top10Reviewers.length === 0 ? (
-                <p>No reviewer data available.</p>
-              ) : (
-                <ol>
-                  {dashboardData.top10Reviewers.map((reviewer) => (
-                    <li key={reviewer[0]}>
-                      {reviewer[0]}: {reviewer[1]} reviews
-                    </li>
-                  ))}
-                </ol>
-              )}
+            ) : (
 
-            </div>
+              <div className="reviewerTable">
+
+                <div className="reviewerTableHeader">
+
+                  <span>
+                    Rank
+                  </span>
+
+                  <span>
+                    Reviewer
+                  </span>
+
+                  <span>
+                    Reviews
+                  </span>
+
+                </div>
+
+
+                {dashboardData.top10Reviewers.map(
+                  (reviewer, index) => (
+
+                    <div
+                      key={reviewer[0]}
+                      className="reviewerTableRow"
+                    >
+
+                      <span>
+                        {index + 1}
+                      </span>
+
+                      <span>
+                        {reviewer[0]}
+                      </span>
+
+                      <span>
+                        {reviewer[1]}
+                      </span>
+
+                    </div>
+
+                  )
+                )}
+
+              </div>
+
+            )}
 
           </div>
+
         </div>
 
       </section>
 
+
+      {/* =====================================================
+          SECTION 4
+          TEAM ACTIVITY
+      ===================================================== */}
 
       <section className="sections">
 
@@ -333,8 +562,10 @@ const Dashboard = () => {
           </h2>
 
           <p>
-            See which contributors have created the most pull requests.
+            See which contributors have created the most
+            pull requests.
           </p>
+
 
           <div className="teamActivityInner">
 
@@ -343,18 +574,63 @@ const Dashboard = () => {
             </h3>
 
             {dashboardData.top10Authors.length === 0 ? (
-              <p>No author data available.</p>
+
+              <p>
+                No author data available.
+              </p>
+
             ) : (
-              <ol>
-                {dashboardData.top10Authors.map((author) => (
-                  <li key={author[0]}>
-                    {author[0]}: {author[1]} PRs
-                  </li>
-                ))}
-              </ol>
+
+              <div className="authorTable">
+
+                <div className="authorTableHeader">
+
+                  <span>
+                    Rank
+                  </span>
+
+                  <span>
+                    Author
+                  </span>
+
+                  <span>
+                    Pull Requests
+                  </span>
+
+                </div>
+
+
+                {dashboardData.top10Authors.map(
+                  (author, index) => (
+
+                    <div
+                      key={author[0]}
+                      className="authorTableRow"
+                    >
+
+                      <span>
+                        {index + 1}
+                      </span>
+
+                      <span>
+                        {author[0]}
+                      </span>
+
+                      <span>
+                        {author[1]}
+                      </span>
+
+                    </div>
+
+                  )
+                )}
+
+              </div>
+
             )}
 
           </div>
+
         </div>
 
       </section>
@@ -364,4 +640,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

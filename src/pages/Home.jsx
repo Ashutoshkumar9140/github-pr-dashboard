@@ -16,7 +16,7 @@ const Home = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // These values are used for dashboard calculations
+  // Values used for dashboard calculations
   const staleDays = 7;
   const prAge = 10;
 
@@ -24,7 +24,6 @@ const Home = () => {
     if (loading) {
       return;
     }
-
 
     setErrorMsg("");
     setLoading(true);
@@ -52,24 +51,23 @@ const Home = () => {
         `https://github-pr-dashboard-backend.onrender.com/github?repo=${owner}/${repo}`
       );
 
-
       if (!response.ok) {
         setErrorMsg(
           statusMessages[response.status] ||
-          "Something went wrong. Please try again."
+            "Something went wrong. Please try again."
         );
         return;
       }
 
       // Getting pull requests
       const pullResponse = await fetch(
-`https://github-pr-dashboard-backend.onrender.com/github/pulls?repo=${owner}/${repo}`
+        `https://github-pr-dashboard-backend.onrender.com/github/pulls?repo=${owner}/${repo}`
       );
 
       if (!pullResponse.ok) {
         setErrorMsg(
           statusMessages[pullResponse.status] ||
-          "Unable to fetch pull requests."
+            "Unable to fetch pull requests."
         );
         return;
       }
@@ -115,12 +113,12 @@ const Home = () => {
       );
 
       // Finding stale PRs
-      // A stale PR has not been updated for 7 or more days
       const stalePRs = pullData.filter((pr) => {
         const now = new Date();
         const updatedDate = new Date(pr.updated_at);
 
         const difference = now - updatedDate;
+
         const days =
           difference / (1000 * 60 * 60 * 24);
 
@@ -132,12 +130,12 @@ const Home = () => {
       });
 
       // Finding old open PRs
-      // An old PR was created 10 or more days ago
       const oldPRs = pullData.filter((pr) => {
         const now = new Date();
         const createdDate = new Date(pr.created_at);
 
         const difference = now - createdDate;
+
         const days =
           difference / (1000 * 60 * 60 * 24);
 
@@ -173,9 +171,9 @@ const Home = () => {
         mergedPRs.length === 0
           ? "No merged PRs"
           : (
-            totalMergedPRsLife /
-            mergedPRs.length
-          ).toFixed(2);
+              totalMergedPRsLife /
+              mergedPRs.length
+            ).toFixed(2);
 
       // Getting PR numbers
       const prNumber = pullData.map(
@@ -185,18 +183,15 @@ const Home = () => {
       // Fetching reviews for every PR
       const reviewPromises = prNumber.map((number) => {
         return fetch(
-`https://github-pr-dashboard-backend.onrender.com/github/reviews?repo=${owner}/${repo}&number=${number}`        ).then((response) => {
+          `https://github-pr-dashboard-backend.onrender.com/github/reviews?repo=${owner}/${repo}&number=${number}`
+        ).then((response) => {
           if (!response.ok) {
             return [];
           }
 
-
           return response.json();
-
-
         });
       });
-
 
       const allReviewData =
         await Promise.all(reviewPromises);
@@ -323,8 +318,8 @@ const Home = () => {
         count === 0
           ? "No PR reviewed till now"
           : (
-            sumAllTimesArr / count
-          ).toFixed(2);
+              sumAllTimesArr / count
+            ).toFixed(2);
 
       // Sorting reviewers
       const reviewersArr =
@@ -424,6 +419,8 @@ const Home = () => {
 
       <div className="homeContainer">
 
+        {/* ================= WELCOME ================= */}
+
         <section className="welcomeSection">
 
           <p className="welcomeText">
@@ -435,239 +432,143 @@ const Home = () => {
           </h1>
 
           <p className="homeDescription">
-            Analyze a public GitHub repository and
-            get a simple view of its pull requests,
-            code reviews, and team activity.
-          </p>
-
-          <p className="homeSubDescription">
-            Find PRs that may need attention,
-            understand review speed, and see
-            who is contributing and reviewing
-            the most.
+            Understand your repository's pull requests,
+            reviews, and team activity at a glance.
           </p>
 
         </section>
 
+
+        {/* ================= REPOSITORY ANALYSIS ================= */}
 
         <section className="repoInputContainer">
 
           <h2>
-            Analyze a Repository
+            Analyze Your Repository
           </h2>
 
-          <p>
-            Enter the URL of any public GitHub
-            repository to start the analysis.
+          <p className="repoInstruction">
+            Please enter your GitHub repository URL.
           </p>
 
-          <label htmlFor="repoUrl">
-            GitHub Repository URL
-          </label>
+          <div className="repoInputGroup">
 
-          <input
-            id="repoUrl"
-            type="text"
-            value={inputUrl}
-            onChange={(e) =>
-              setInputUrl(e.target.value)
-            }
-            placeholder="https://github.com/facebook/react"
-            disabled={loading}
-          />
+            <input
+              id="repoUrl"
+              type="text"
+              value={inputUrl}
+              onChange={(e) =>
+                setInputUrl(e.target.value)
+              }
+              placeholder="https://github.com/facebook/react"
+              disabled={loading}
+            />
 
-          <p className="analysisInfo">
-            The current version analyzes up to
-            100 pull requests from the repository.
-          </p>
-
-          <div className="thresholdInfo">
-
-            <p>
-              <strong>Stale PR:</strong>{" "}
-              An open, ready-for-review PR that
-              has not been updated for{" "}
-              <strong>{staleDays}+ days</strong>.
-            </p>
-
-            <p>
-              <strong>Old PR:</strong>{" "}
-              An open PR that was created{" "}
-              <strong>{prAge}+ days ago</strong>.
-            </p>
+            <button
+              onClick={urlHandler}
+              disabled={loading}
+            >
+              {loading
+                ? "Analyzing..."
+                : "Analyze Repository"}
+            </button>
 
           </div>
 
-          {errorMsg && (
-            <p className="errorMessage">
-              {errorMsg}
-            </p>
-          )}
 
-          <button
-            onClick={urlHandler}
-            disabled={loading}
-          >
-            {loading
-              ? "Analyzing..."
-              : "Analyze Repository"}
-          </button>
+          {/* Reserved error space */}
 
-          {loading && (
-            <div className="loaderContainer">
+          <div className="errorMessageContainer">
 
-              <div className="loader"></div>
-
-              <p>
-                Analyzing repository...
+            {errorMsg && (
+              <p className="errorMessage">
+                {errorMsg}
               </p>
+            )}
 
-              <span>
-                Pull request and review data
-                may take a little time to load.
-              </span>
+          </div>
 
-            </div>
-          )}
+
+          {/* Loader */}
+
+          <div className="loaderContainer">
+
+            {loading && (
+              <>
+                <div className="loader"></div>
+
+                <p>
+                  Analyzing repository...
+                </p>
+
+                <span>
+                  Pull request and review data
+                  may take a little time to load.
+                </span>
+              </>
+            )}
+
+          </div>
 
         </section>
 
+
+        {/* ================= WHY THIS DASHBOARD ================= */}
 
         <section className="featuresSection">
 
           <h2>
-            What You Can See
+            Why this dashboard?
           </h2>
 
           <div className="featuresList">
 
-            <div>
-              <h3>PR Overview</h3>
+            <div className="featureItem">
+              <h3>
+                Find PRs needing attention
+              </h3>
+
               <p>
-                See total, open, closed, merged,
-                draft, and ready-for-review PRs.
+                Quickly spot stale and old PRs.
               </p>
             </div>
 
-            <div>
-              <h3>Attention Needed</h3>
+
+            <div className="featureItem">
+              <h3>
+                Understand review performance
+              </h3>
+
               <p>
-                Find stale PRs, older open PRs,
-                and PRs that have never received
-                a review.
+                See how quickly PRs get reviewed.
               </p>
             </div>
 
-            <div>
-              <h3>Review Health</h3>
+
+            <div className="featureItem">
+              <h3>
+                Track team activity
+              </h3>
+
               <p>
-                Understand average review time,
-                merge time, and different types
-                of review activity.
+                See active reviewers and contributors.
               </p>
             </div>
 
-            <div>
-              <h3>Team Activity</h3>
+
+            <div className="featureItem">
+              <h3>
+                Get a quick overview
+              </h3>
+
               <p>
-                See the most active reviewers and
-                PR authors in the analyzed data.
+                Understand repository activity in seconds.
               </p>
             </div>
 
           </div>
 
         </section>
-
-
-        <section className="infoSection">
-
-          <h2>
-            How It Works
-          </h2>
-
-          <ol>
-            <li>
-              Enter a public GitHub repository URL.
-            </li>
-
-            <li>
-              Click the Analyze Repository button.
-            </li>
-
-            <li>
-              The application collects PR and
-              review information from GitHub.
-            </li>
-
-            <li>
-              Explore the results on the dashboard.
-            </li>
-          </ol>
-
-        </section>
-
-
-        <footer className="homeFooter">
-
-          <div className="footerSection">
-
-            <h2>
-              A Few Things to Know
-            </h2>
-
-            <ul>
-              <li>
-                This tool currently works with
-                public GitHub repositories.
-              </li>
-
-              <li>
-                Up to 100 pull requests are
-                analyzed in the current version.
-              </li>
-
-              <li>
-                Review analysis requires extra
-                GitHub API requests, so larger
-                repositories may take longer.
-              </li>
-
-              <li>
-                The dashboard uses information
-                available through the GitHub API.
-              </li>
-
-              <li>
-                The results are meant to give a
-                quick overview and should not be
-                treated as a complete replacement
-                for GitHub.
-              </li>
-
-              <li>
-                This tool can be useful for quickly
-                finding PRs that need attention and
-                understanding team review activity.
-              </li>
-            </ul>
-
-          </div>
-
-          <div className="footerBottom">
-
-            <p>
-              GitHub PR Dashboard
-            </p>
-
-            <p>
-              A simple tool for understanding
-              pull request and review activity.
-            </p>
-
-          </div>
-
-        </footer>
 
       </div>
 
