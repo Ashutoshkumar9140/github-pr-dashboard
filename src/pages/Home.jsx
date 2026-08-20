@@ -49,7 +49,7 @@ const Home = () => {
 
       // Getting repository information
       const response = await fetch(
-        `http://localhost:8080/github?repo=${owner}/${repo}`
+        `https://github-pr-dashboard-backend.onrender.com/github?repo=${owner}/${repo}`
       );
 
 
@@ -63,8 +63,7 @@ const Home = () => {
 
       // Getting pull requests
       const pullResponse = await fetch(
-        `http://localhost:8080/github/pulls?repo=${owner}/${repo}`
-
+`https://github-pr-dashboard-backend.onrender.com/github/pulls?repo=${owner}/${repo}`
       );
 
       if (!pullResponse.ok) {
@@ -186,8 +185,7 @@ const Home = () => {
       // Fetching reviews for every PR
       const reviewPromises = prNumber.map((number) => {
         return fetch(
-          `http://localhost:8080/github/reviews?repo=${owner}/${repo}&number=${number}`
-        ).then((response) => {
+`https://github-pr-dashboard-backend.onrender.com/github/reviews?repo=${owner}/${repo}&number=${number}`        ).then((response) => {
           if (!response.ok) {
             return [];
           }
