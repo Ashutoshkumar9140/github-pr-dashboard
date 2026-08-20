@@ -1,0 +1,1063 @@
+/* =========================================================
+   BASIC SETUP
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #0d1117;
+  color: #e6edf3;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+#mainDiv {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+.sections {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.sectionHeading {
+  margin: 15px 0 25px;
+
+  font-family:
+    "Franklin Gothic Medium",
+    "Arial Narrow",
+    Arial,
+    sans-serif;
+
+  font-size: clamp(2rem, 3vw, 4rem);
+
+  color: #f0f6fc;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h2,
+h3 {
+  color: #f0f6fc;
+}
+
+p,
+li {
+  color: #c9d1d9;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  max-width: 100%;
+}
+
+p {
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SECTION 1
+   PR OVERVIEW
+========================================================= */
+
+.prOverviewContainer {
+  width: 100%;
+  min-height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #161b22;
+  border: 1px solid #30363d;
+
+  padding: 45px 60px;
+
+  gap: 30px;
+}
+
+#totalPrHeading {
+  width: fit-content;
+  max-width: 95%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #30363d;
+  border-radius: 8px;
+
+  background-color: #21262d;
+
+  padding: 18px 35px;
+
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+  overflow-wrap: anywhere;
+}
+
+.openClosedContainer {
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+
+  gap: 40px;
+
+  padding: 15px 25px;
+}
+
+.openClosedPRs {
+  width: 45%;
+  min-height: 220px;
+
+  border: 1px solid #30363d;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #21262d;
+
+  padding: 30px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  overflow-wrap: anywhere;
+}
+
+.openClosedPRs h3 {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.openClosedPRs ul {
+  width: 100%;
+
+  line-height: 2;
+
+  padding-left: 25px;
+}
+
+
+/* =========================================================
+   SECTION 2
+   ATTENTION NEEDED
+========================================================= */
+
+#attentionContainer {
+  width: 100%;
+  min-height: 50vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  background-color: #0d1117;
+
+  padding: 50px 60px;
+
+  gap: 25px;
+}
+
+#attentionChildContainer {
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+
+  gap: 35px;
+}
+
+.attectionChild {
+  width: 32%;
+  min-height: 450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  gap: 25px;
+
+  border: 1px solid #30363d;
+  border-radius: 10px;
+
+  padding: 30px;
+
+  background-color: #161b22;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+}
+
+.attectionChild h3 {
+  width: 100%;
+
+  margin: 0;
+
+  text-align: center;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+.attectionChild > p {
+  margin: 0;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   ATTENTION LIST
+========================================================= */
+
+.attentionList {
+  width: 100%;
+  height: 270px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  gap: 15px;
+
+  padding: 12px;
+
+  border: 1px solid #30363d;
+  border-radius: 6px;
+
+  background-color: #0d1117;
+}
+
+
+/* Scrollbar */
+
+.attentionList::-webkit-scrollbar {
+  width: 7px;
+}
+
+.attentionList::-webkit-scrollbar-track {
+  background: #161b22;
+}
+
+.attentionList::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 10px;
+}
+
+.attentionList::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+.attentionListChild {
+  width: 100%;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  padding: 13px;
+
+  font-size: 0.9rem;
+  line-height: 1.45;
+
+  border: 1px solid #30363d;
+  border-radius: 6px;
+
+  background-color: #21262d;
+
+  overflow-wrap: anywhere;
+}
+
+.attentionListChild p {
+  width: 100%;
+
+  margin: 5px 0;
+
+  max-width: 100%;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+  height: 40px;
+  min-width: 120px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #238636;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #2ea043;
+}
+
+button:active {
+  background-color: #1f6f2d;
+
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   SECTION 3
+   REVIEW HEALTH
+========================================================= */
+
+.reviewHealthContainerOuter {
+  width: 100%;
+  min-height: 40vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  background-color: #0c2d3f;
+
+  padding: 50px 60px;
+
+  gap: 25px;
+}
+
+.reviewHealthContainerInner {
+  width: 100%;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+
+  gap: 45px;
+}
+
+.avg-revContainer {
+  width: 55%;
+  min-height: 330px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  background-color: #161b22;
+
+  padding: 35px;
+
+  border: 1px solid #30363d;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  overflow-wrap: anywhere;
+}
+
+.avg-revContainer > h3 {
+  line-height: 1.5;
+
+  margin: 5px 0;
+}
+
+.reviewersContainer {
+  width: 35%;
+  min-height: 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  background-color: #161b22;
+
+  padding: 35px;
+
+  border: 1px solid #30363d;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  overflow-wrap: anywhere;
+}
+
+.reviewersContainer > h3 {
+  margin: 5px 0;
+}
+
+.reviewersContainer > p {
+  text-align: center;
+}
+
+
+/* =========================================================
+   REVIEW ACTIVITY
+========================================================= */
+
+.reviewContainer {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+
+  border: 1px solid #30363d;
+  border-radius: 6px;
+
+  margin-top: 25px;
+
+  padding: 20px;
+
+  background-color: #21262d;
+}
+
+.reviewContainer h3 {
+  margin-top: 0;
+}
+
+.reviewContainerChild {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+  padding-left: 25px;
+
+  line-height: 2;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TOP REVIEWERS
+   Number stays inside the card
+========================================================= */
+
+.reviewersContainer ol {
+  width: 100%;
+
+  margin: 10px 0;
+
+  padding-left: 35px;
+
+  line-height: 2;
+
+  list-style-position: outside;
+
+  overflow-wrap: anywhere;
+}
+
+.reviewersContainer li {
+  padding: 3px 0;
+
+  padding-left: 5px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   SECTION 4
+   TEAM ACTIVITY
+========================================================= */
+
+.teamActivityContainer {
+  width: 100%;
+  min-height: 40vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  background-color: #1b2638;
+
+  padding: 50px 60px;
+
+  gap: 25px;
+}
+
+.teamActivityInner {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 30px;
+}
+
+.teamActivityInner h3 {
+  text-align: center;
+}
+
+.teamActivityInner ol {
+  width: 100%;
+  max-width: 500px;
+
+  margin: 10px 0;
+
+  padding-left: 35px;
+
+  line-height: 2;
+
+  list-style-position: outside;
+
+  overflow-wrap: anywhere;
+}
+
+.teamActivityInner li {
+  padding: 3px 0;
+  padding-left: 5px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   DASHBOARD ERROR
+========================================================= */
+
+#dashboardError {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background-color: #0d1117;
+}
+
+.dashboardErrorContainer {
+  width: min(600px, 100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 15px;
+
+  padding: 45px;
+
+  text-align: center;
+
+  background-color: #161b22;
+
+  border: 1px solid #30363d;
+  border-radius: 10px;
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dashboardErrorContainer h1 {
+  margin-top: 0;
+
+  color: #f0f6fc;
+
+  line-height: 1.3;
+}
+
+.dashboardErrorContainer p {
+  margin: 0;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TABLET
+   769px — 1024px
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .sectionHeading {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .prOverviewContainer {
+    min-height: 450px;
+
+    padding: 35px 30px;
+
+    gap: 25px;
+  }
+
+  .openClosedContainer {
+    gap: 25px;
+
+    padding: 10px;
+  }
+
+  .openClosedPRs {
+    width: 47%;
+
+    min-height: 210px;
+
+    padding: 22px;
+  }
+
+
+  /* Attention */
+
+  #attentionContainer {
+    padding: 40px 25px;
+
+    gap: 25px;
+  }
+
+  #attentionChildContainer {
+    gap: 20px;
+  }
+
+  .attectionChild {
+    width: 32%;
+
+    min-height: 410px;
+
+    padding: 20px;
+
+    gap: 20px;
+  }
+
+  .attentionList {
+    height: 245px;
+  }
+
+  .attentionListChild {
+    font-size: 0.85rem;
+
+    padding: 10px;
+  }
+
+
+  /* Review */
+
+  .reviewHealthContainerOuter {
+    padding: 40px 25px;
+
+    gap: 25px;
+  }
+
+  .reviewHealthContainerInner {
+    gap: 25px;
+  }
+
+  .avg-revContainer {
+    width: 55%;
+
+    min-height: 320px;
+
+    padding: 25px;
+  }
+
+  .reviewersContainer {
+    width: 40%;
+
+    min-height: 320px;
+
+    padding: 25px;
+  }
+
+
+  /* Team */
+
+  .teamActivityContainer {
+    padding: 40px 25px;
+  }
+
+  .teamActivityInner {
+    padding: 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   768px AND BELOW
+========================================================= */
+
+@media (max-width: 768px) {
+
+  #mainDiv {
+    width: 100%;
+  }
+
+  .sectionHeading {
+    font-size: clamp(1.7rem, 7vw, 2.5rem);
+
+    margin: 10px 0 20px;
+  }
+
+
+  /* PR Overview */
+
+  .prOverviewContainer {
+    width: 100%;
+
+    min-height: 550px;
+
+    padding: 30px 15px;
+
+    gap: 25px;
+  }
+
+  #totalPrHeading {
+    width: 95%;
+
+    font-size: clamp(1.2rem, 5vw, 2rem);
+
+    padding: 14px;
+  }
+
+  .openClosedContainer {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 5px;
+  }
+
+  .openClosedPRs {
+    width: 95%;
+
+    min-height: 190px;
+
+    padding: 18px;
+  }
+
+
+  /* Attention */
+
+  #attentionContainer {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 35px 12px;
+  }
+
+  #attentionChildContainer {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+  }
+
+  .attectionChild {
+    width: 95%;
+
+    min-height: 450px;
+
+    padding: 18px;
+
+    gap: 18px;
+  }
+
+  .attentionList {
+    width: 100%;
+
+    height: 250px;
+  }
+
+  .attentionListChild {
+    font-size: 0.85rem;
+
+    padding: 10px;
+  }
+
+
+  /* Review Health */
+
+  .reviewHealthContainerOuter {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 35px 12px;
+  }
+
+  .reviewHealthContainerInner {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+  }
+
+  .avg-revContainer {
+    width: 95%;
+
+    min-height: 400px;
+
+    padding: 22px;
+  }
+
+  .reviewersContainer {
+    width: 95%;
+
+    min-height: 350px;
+
+    padding: 22px;
+  }
+
+  .reviewContainer {
+    margin-top: 15px;
+  }
+
+  /*
+     Extra left space is kept here so
+     10, 11, 12... also stay inside.
+  */
+
+  .reviewersContainer ol {
+    width: 100%;
+
+    padding-left: 35px;
+
+    margin: 10px 0;
+
+    line-height: 1.8;
+
+    list-style-position: outside;
+  }
+
+  .reviewersContainer li {
+    padding-left: 3px;
+  }
+
+
+  /* Team Activity */
+
+  .teamActivityContainer {
+    width: 100%;
+
+    min-height: 400px;
+
+    padding: 35px 12px;
+  }
+
+  .teamActivityInner {
+    width: 95%;
+
+    padding: 20px 15px;
+  }
+
+  .teamActivityInner ol {
+    width: 100%;
+
+    padding-left: 35px;
+
+    line-height: 1.8;
+
+    list-style-position: outside;
+  }
+
+  .teamActivityInner li {
+    padding-left: 3px;
+  }
+
+
+  /* Error page */
+
+  #dashboardError {
+    padding: 20px 12px;
+  }
+
+  .dashboardErrorContainer {
+    padding: 30px 20px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   480px AND BELOW
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .sectionHeading {
+    font-size: 1.7rem;
+  }
+
+
+  /* PR Overview */
+
+  .prOverviewContainer {
+    min-height: 600px;
+
+    padding: 25px 8px;
+  }
+
+  #totalPrHeading {
+    font-size: 1.2rem;
+
+    width: 98%;
+
+    padding: 12px;
+  }
+
+  .openClosedPRs {
+    width: 98%;
+
+    min-height: 190px;
+
+    padding: 15px;
+  }
+
+
+  /* Attention */
+
+  #attentionContainer {
+    padding: 25px 5px;
+  }
+
+  .attectionChild {
+    width: 98%;
+
+    min-height: 450px;
+
+    padding: 14px;
+  }
+
+  .attentionList {
+    height: 240px;
+
+    padding: 9px;
+  }
+
+  .attentionListChild {
+    font-size: 0.8rem;
+
+    padding: 9px;
+  }
+
+
+  /* Review */
+
+  .avg-revContainer,
+  .reviewersContainer {
+    width: 98%;
+  }
+
+  .avg-revContainer {
+    min-height: 430px;
+
+    padding: 18px;
+  }
+
+  .reviewersContainer {
+    min-height: 350px;
+
+    padding: 18px;
+  }
+
+  .reviewersContainer ol {
+    padding-left: 32px;
+  }
+
+
+  /* Team */
+
+  .teamActivityInner {
+    width: 98%;
+
+    padding: 15px 10px;
+  }
+
+  .teamActivityInner ol {
+    padding-left: 32px;
+  }
+
+
+  /* Error */
+
+  .dashboardErrorContainer {
+    padding: 25px 15px;
+  }
+
+  .dashboardErrorContainer h1 {
+    font-size: 1.6rem;
+  }
+}

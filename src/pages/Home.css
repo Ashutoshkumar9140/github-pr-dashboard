@@ -1,0 +1,860 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  background-color: #0d1117;
+  color: #e6edf3;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
+#homePage {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-direction: column;
+
+  padding: 55px 40px;
+
+  background-color: #0d1117;
+
+  gap: 35px;
+}
+
+
+/* =========================================================
+   HOME CONTAINER
+========================================================= */
+
+.homeContainer {
+  width: 100%;
+  max-width: 950px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  padding: 55px 65px;
+
+  gap: 30px;
+
+  background-color: #161b22;
+
+  border: 1px solid #30363d;
+  border-radius: 12px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   WELCOME MESSAGE
+========================================================= */
+
+.welcomeMessage {
+  width: 100%;
+  max-width: 750px;
+
+  margin: 0;
+
+  padding: 15px 20px;
+
+  text-align: center;
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+
+  color: #58a6ff;
+
+  background-color: rgba(88, 166, 255, 0.08);
+
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.homeTitle {
+  margin: 0;
+
+  font-family:
+    "Franklin Gothic Medium",
+    "Arial Narrow",
+    Arial,
+    sans-serif;
+
+  font-size: clamp(2.2rem, 4vw, 4rem);
+
+  line-height: 1.2;
+
+  text-align: center;
+
+  color: #f0f6fc;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.homeDescription {
+  width: 90%;
+  max-width: 750px;
+
+  margin: 0;
+
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+
+  line-height: 1.7;
+
+  text-align: center;
+
+  color: #8b949e;
+}
+
+
+/* =========================================================
+   REPOSITORY INPUT AREA
+========================================================= */
+
+.repoInputContainer {
+  width: 100%;
+  max-width: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  padding: 35px;
+
+  background-color: #21262d;
+
+  border: 1px solid #30363d;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.repoInputContainer label {
+  width: 100%;
+
+  margin-bottom: 2px;
+
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+
+  font-weight: 600;
+
+  color: #f0f6fc;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+#repoUrl {
+  width: 100%;
+
+  height: 52px;
+
+  padding: 0 17px;
+
+  border: 1px solid #484f58;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background-color: #0d1117;
+
+  color: #e6edf3;
+
+  font-size: 1rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#repoUrl::placeholder {
+  color: #6e7681;
+}
+
+#repoUrl:focus {
+  border-color: #58a6ff;
+
+  box-shadow:
+    0 0 0 3px rgba(88, 166, 255, 0.15);
+}
+
+
+/* =========================================================
+   ANALYSIS INFO
+========================================================= */
+
+.analysisInfo {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 10px 12px;
+
+  color: #8b949e;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+
+  text-align: center;
+
+  background-color: #161b22;
+
+  border-radius: 6px;
+}
+
+
+/* =========================================================
+   THRESHOLD INFORMATION
+========================================================= */
+
+.thresholdInfo {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  padding: 14px 16px;
+
+  background-color: #161b22;
+
+  border: 1px solid #30363d;
+
+  border-radius: 7px;
+}
+
+.thresholdInfo p {
+  margin: 0;
+
+  color: #8b949e;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+.thresholdInfo strong {
+  color: #c9d1d9;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.errorMessage {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 11px 13px;
+
+  border: 1px solid #da3633;
+
+  border-radius: 6px;
+
+  background-color: rgba(218, 54, 51, 0.1);
+
+  color: #ff7b72;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ANALYZE BUTTON
+========================================================= */
+
+.repoInputContainer button {
+  width: 180px;
+
+  min-height: 44px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background-color: #238636;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    opacity 0.2s ease;
+}
+
+.repoInputContainer button:hover {
+  background-color: #2ea043;
+}
+
+.repoInputContainer button:active {
+  background-color: #1f6f2d;
+
+  transform: scale(0.98);
+}
+
+.repoInputContainer button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loadingContainer {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  color: #8b949e;
+
+  text-align: center;
+}
+
+.loader {
+  width: 38px;
+  height: 38px;
+
+  border: 4px solid #30363d;
+  border-top: 4px solid #58a6ff;
+
+  border-radius: 50%;
+
+  animation: spinLoader 0.9s linear infinite;
+}
+
+.loadingText {
+  margin: 0;
+
+  font-size: 0.95rem;
+
+  color: #8b949e;
+}
+
+@keyframes spinLoader {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   HOME FOOTER
+========================================================= */
+
+.homeFooter {
+  width: 100%;
+  max-width: 950px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+  padding: 35px 45px;
+
+  background-color: #161b22;
+
+  border: 1px solid #30363d;
+  border-radius: 10px;
+}
+
+
+/* Footer heading */
+
+.homeFooter h2 {
+  margin: 0;
+
+  color: #f0f6fc;
+
+  font-size: 1.5rem;
+
+  text-align: center;
+}
+
+
+/* Footer content */
+
+.footerInfo {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* Footer cards */
+
+.footerCard {
+  width: 100%;
+
+  padding: 18px;
+
+  background-color: #21262d;
+
+  border: 1px solid #30363d;
+
+  border-radius: 8px;
+}
+
+.footerCard h3 {
+  margin: 0 0 10px;
+
+  color: #f0f6fc;
+
+  font-size: 1rem;
+}
+
+.footerCard p {
+  margin: 0;
+
+  color: #8b949e;
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+}
+
+
+/* Footer note */
+
+.footerNote {
+  width: 100%;
+
+  margin: 0;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #30363d;
+
+  color: #6e7681;
+
+  font-size: 0.85rem;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+   769px — 1024px
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  #homePage {
+    padding: 40px 25px;
+
+    gap: 30px;
+  }
+
+  .homeContainer {
+    max-width: 850px;
+
+    padding: 45px 45px;
+
+    gap: 27px;
+  }
+
+  .welcomeMessage {
+    max-width: 700px;
+
+    font-size: 1rem;
+  }
+
+  .homeTitle {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+
+  .homeDescription {
+    width: 92%;
+
+    font-size: 1.05rem;
+
+    line-height: 1.6;
+  }
+
+  .repoInputContainer {
+    max-width: 650px;
+
+    padding: 28px;
+
+    gap: 17px;
+  }
+
+  #repoUrl {
+    height: 50px;
+  }
+
+  .homeFooter {
+    max-width: 850px;
+
+    padding: 30px 35px;
+  }
+
+  .footerInfo {
+    gap: 15px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   768px AND BELOW
+========================================================= */
+
+@media (max-width: 768px) {
+
+  #homePage {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 30px 15px;
+
+    gap: 25px;
+  }
+
+  .homeContainer {
+    width: 100%;
+
+    max-width: 650px;
+
+    padding: 35px 22px;
+
+    gap: 24px;
+
+    border-radius: 10px;
+  }
+
+  .welcomeMessage {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-size: 0.95rem;
+
+    line-height: 1.55;
+  }
+
+  .homeTitle {
+    width: 100%;
+
+    font-size: clamp(2rem, 8vw, 2.8rem);
+
+    line-height: 1.2;
+  }
+
+  .homeDescription {
+    width: 95%;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+  }
+
+  .repoInputContainer {
+    width: 100%;
+
+    padding: 25px 18px;
+
+    gap: 17px;
+  }
+
+  .repoInputContainer label {
+    font-size: 1rem;
+  }
+
+  #repoUrl {
+    width: 100%;
+
+    height: 49px;
+
+    font-size: 0.95rem;
+
+    padding: 0 13px;
+  }
+
+  .analysisInfo {
+    font-size: 0.85rem;
+  }
+
+  .thresholdInfo {
+    padding: 13px;
+  }
+
+  .thresholdInfo p {
+    font-size: 0.85rem;
+  }
+
+  .repoInputContainer button {
+    width: 160px;
+
+    height: 42px;
+
+    font-size: 0.95rem;
+  }
+
+  .homeFooter {
+    width: 100%;
+
+    padding: 28px 20px;
+
+    gap: 20px;
+  }
+
+  .footerInfo {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .footerCard {
+    padding: 16px;
+  }
+
+  .footerCard p {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   480px AND BELOW
+========================================================= */
+
+@media (max-width: 480px) {
+
+  #homePage {
+    padding: 18px 8px;
+
+    gap: 18px;
+  }
+
+  .homeContainer {
+    width: 100%;
+
+    padding: 28px 13px;
+
+    gap: 20px;
+
+    border-radius: 8px;
+  }
+
+  .welcomeMessage {
+    padding: 12px;
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
+  }
+
+  .homeTitle {
+    font-size: 1.9rem;
+
+    line-height: 1.2;
+  }
+
+  .homeDescription {
+    width: 98%;
+
+    font-size: 0.92rem;
+
+    line-height: 1.55;
+  }
+
+  .repoInputContainer {
+    width: 100%;
+
+    padding: 20px 12px;
+
+    gap: 14px;
+  }
+
+  .repoInputContainer label {
+    font-size: 0.92rem;
+  }
+
+  #repoUrl {
+    height: 46px;
+
+    font-size: 0.88rem;
+
+    padding: 0 11px;
+  }
+
+  .analysisInfo {
+    padding: 8px;
+
+    font-size: 0.8rem;
+  }
+
+  .thresholdInfo {
+    padding: 12px 10px;
+
+    gap: 7px;
+  }
+
+  .thresholdInfo p {
+    font-size: 0.8rem;
+
+    line-height: 1.5;
+  }
+
+  .repoInputContainer button {
+    width: 145px;
+
+    height: 40px;
+
+    font-size: 0.9rem;
+  }
+
+  .errorMessage {
+    font-size: 0.82rem;
+
+    padding: 9px 10px;
+  }
+
+  .loadingContainer {
+    padding: 15px 10px;
+  }
+
+  .loader {
+    width: 34px;
+    height: 34px;
+  }
+
+  .loadingText {
+    font-size: 0.85rem;
+  }
+
+  .homeFooter {
+    width: 100%;
+
+    padding: 25px 13px;
+
+    gap: 18px;
+
+    border-radius: 8px;
+  }
+
+  .homeFooter h2 {
+    font-size: 1.3rem;
+  }
+
+  .footerCard {
+    padding: 14px;
+  }
+
+  .footerCard h3 {
+    font-size: 0.95rem;
+  }
+
+  .footerCard p {
+    font-size: 0.8rem;
+
+    line-height: 1.55;
+  }
+
+  .footerNote {
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+  }
+}
