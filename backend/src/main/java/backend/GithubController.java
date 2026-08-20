@@ -11,8 +11,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
-@CrossOrigin(origins = "http://localhost:5173")
-@RestController
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://ashutoshkumar9140.github.io"
+})@RestController
 public class GithubController {
 
 
