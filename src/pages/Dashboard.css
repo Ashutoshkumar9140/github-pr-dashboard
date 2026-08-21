@@ -1091,13 +1091,15 @@ button:active {
     padding: 5px;
   }
 
-  .openClosedPRs {
-    width: 95%;
+.openClosedPRs {
+  width: 95%;
 
-    min-height: 190px;
+  min-height: 190px;
 
-    padding: 18px;
-  }
+  padding: 18px;
+
+  margin: 0 auto;
+}
 
 
   /* ATTENTION */
@@ -1297,13 +1299,15 @@ button:active {
     padding: 12px;
   }
 
-  .openClosedPRs {
-    width: 98%;
+.openClosedPRs {
+  width: 98%;
 
-    min-height: 190px;
+  min-height: 190px;
 
-    padding: 15px;
-  }
+  padding: 15px;
+
+  margin: 0 auto;
+}
 
   #attentionContainer {
     padding: 25px 5px;

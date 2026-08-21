@@ -93,6 +93,7 @@ const Dashboard = () => {
               </h3>
 
               <ul>
+
                 <li>
                   Draft Pull Requests:{" "}
                   {dashboardData.draftPRs}
@@ -102,6 +103,7 @@ const Dashboard = () => {
                   Ready for Review:{" "}
                   {dashboardData.readyForReviewPRs}
                 </li>
+
               </ul>
 
             </div>
@@ -115,6 +117,7 @@ const Dashboard = () => {
               </h3>
 
               <ul>
+
                 <li>
                   Merged Pull Requests:{" "}
                   {dashboardData.mergedPRs}
@@ -124,6 +127,7 @@ const Dashboard = () => {
                   Unmerged Pull Requests:{" "}
                   {dashboardData.unmergedPRs}
                 </li>
+
               </ul>
 
             </div>
@@ -155,6 +159,8 @@ const Dashboard = () => {
           <div id="attentionChildContainer">
 
 
+            {/* STALE PRs */}
+
             <div className="attectionChild">
 
               <h3>
@@ -182,6 +188,7 @@ const Dashboard = () => {
                   dashboardData.stalePRs.map((pr) => {
 
                     const now = new Date();
+
                     const updatedDate =
                       new Date(pr.updated_at);
 
@@ -214,6 +221,7 @@ const Dashboard = () => {
 
                       </div>
                     );
+
                   })
 
                 )}
@@ -222,6 +230,8 @@ const Dashboard = () => {
 
             </div>
 
+
+            {/* OLD OPEN PRs */}
 
             <div className="attectionChild">
 
@@ -250,6 +260,7 @@ const Dashboard = () => {
                   dashboardData.oldOpenPRs.map((pr) => {
 
                     const now = new Date();
+
                     const createdDate =
                       new Date(pr.created_at);
 
@@ -282,6 +293,7 @@ const Dashboard = () => {
 
                       </div>
                     );
+
                   })
 
                 )}
@@ -290,6 +302,8 @@ const Dashboard = () => {
 
             </div>
 
+
+            {/* NEVER REVIEWED PRs */}
 
             <div className="attectionChild">
 
@@ -316,6 +330,7 @@ const Dashboard = () => {
                   dashboardData.neverReviewedPRs.map((pr) => {
 
                     const now = new Date();
+
                     const createdDate =
                       new Date(pr.created_at);
 
@@ -348,6 +363,7 @@ const Dashboard = () => {
 
                       </div>
                     );
+
                   })
 
                 )}
@@ -365,6 +381,7 @@ const Dashboard = () => {
 
       {/* =====================================================
           SECTION 3
+          REVIEW HEALTH
       ===================================================== */}
 
       <section className="sections">
@@ -390,6 +407,9 @@ const Dashboard = () => {
 
               <div className="reviewMetricsContainer">
 
+
+                {/* FIRST REVIEW */}
+
                 <div className="reviewMetricCard">
 
                   <h3>
@@ -397,15 +417,17 @@ const Dashboard = () => {
                   </h3>
 
                   <p className="reviewMetricValue">
-                    {typeof dashboardData.averageTimeToFirstReview === "number"
-                      ? formatDuration(
-                          dashboardData.averageTimeToFirstReview
-                        )
-                      : dashboardData.averageTimeToFirstReview}
+                    {formatDuration(
+                      Number(
+                        dashboardData.averageTimeToFirstReview
+                      )
+                    )}
                   </p>
 
                 </div>
 
+
+                {/* MERGE TIME */}
 
                 <div className="reviewMetricCard">
 
@@ -414,17 +436,19 @@ const Dashboard = () => {
                   </h3>
 
                   <p className="reviewMetricValue">
-                    {typeof dashboardData.averageTimeToMerge === "number"
-                      ? formatDuration(
-                          dashboardData.averageTimeToMerge
-                        )
-                      : dashboardData.averageTimeToMerge}
+                    {formatDuration(
+                      Number(
+                        dashboardData.averageTimeToMerge
+                      )
+                    )}
                   </p>
 
                 </div>
 
               </div>
 
+
+              {/* REVIEW ACTIVITY */}
 
               <div className="reviewActivityCard">
 
@@ -564,6 +588,7 @@ const Dashboard = () => {
 
       {/* =====================================================
           SECTION 4
+          TEAM ACTIVITY
       ===================================================== */}
 
       <section className="sections">
