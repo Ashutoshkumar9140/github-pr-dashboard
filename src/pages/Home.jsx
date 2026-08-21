@@ -16,7 +16,6 @@ const Home = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Values used for dashboard calculations
   const staleDays = 7;
   const prAge = 10;
 
@@ -29,7 +28,6 @@ const Home = () => {
     setLoading(true);
 
     try {
-      // Getting owner and repository name
       const urlArray = inputUrl.trim().split("/");
       const indexOfGithub = urlArray.indexOf("github.com");
 
@@ -46,7 +44,6 @@ const Home = () => {
         return;
       }
 
-      // Getting repository information
       const response = await fetch(
         `https://github-pr-dashboard-backend.onrender.com/github?repo=${owner}/${repo}`
       );
@@ -59,7 +56,6 @@ const Home = () => {
         return;
       }
 
-      // Getting pull requests
       const pullResponse = await fetch(
         `https://github-pr-dashboard-backend.onrender.com/github/pulls?repo=${owner}/${repo}`
       );
@@ -79,40 +75,33 @@ const Home = () => {
         return;
       }
 
-      // Finding open PRs
       const openPRs = pullData.filter(
         (pr) => pr.state === "open"
       );
 
-      // Finding closed PRs
       const closedPRs = pullData.filter(
         (pr) => pr.state === "closed"
       );
 
-      // Finding merged PRs
       const mergedPRs = pullData.filter(
         (pr) =>
           pr.state === "closed" &&
           pr.merged_at !== null
       );
 
-      // Finding unmerged closed PRs
       const unmergedClosedPRs =
         closedPRs.length - mergedPRs.length;
 
-      // Finding draft PRs
       const draftPRs = pullData.filter(
         (pr) => pr.draft === true
       );
 
-      // Finding open PRs ready for review
       const readyPRs = pullData.filter(
         (pr) =>
           pr.state === "open" &&
           pr.draft === false
       );
 
-      // Finding stale PRs
       const stalePRs = pullData.filter((pr) => {
         const now = new Date();
         const updatedDate = new Date(pr.updated_at);
@@ -129,7 +118,6 @@ const Home = () => {
         );
       });
 
-      // Finding old open PRs
       const oldPRs = pullData.filter((pr) => {
         const now = new Date();
         const createdDate = new Date(pr.created_at);
@@ -145,7 +133,6 @@ const Home = () => {
         );
       });
 
-      // Finding how long merged PRs took
       const mergedPRsLife = mergedPRs.map((pr) => {
         const mergedDate = new Date(pr.merged_at);
         const createdDate = new Date(pr.created_at);
@@ -159,14 +146,12 @@ const Home = () => {
         );
       });
 
-      // Adding all merged PR times
       const totalMergedPRsLife =
         mergedPRsLife.reduce(
           (acc, pr) => acc + pr,
           0
         );
 
-      // Finding average merge time
       const averageTime =
         mergedPRs.length === 0
           ? "No merged PRs"
@@ -175,12 +160,10 @@ const Home = () => {
               mergedPRs.length
             ).toFixed(2);
 
-      // Getting PR numbers
       const prNumber = pullData.map(
         (pr) => pr.number
       );
 
-      // Fetching reviews for every PR
       const reviewPromises = prNumber.map((number) => {
         return fetch(
           `https://github-pr-dashboard-backend.onrender.com/github/reviews?repo=${owner}/${repo}&number=${number}`
@@ -202,14 +185,12 @@ const Home = () => {
       const reviewersCount = {};
       const neverReviewedPRs = [];
 
-      // Review activity by type
       const reviewActivity = {
         APPROVED: 0,
         CHANGES_REQUESTED: 0,
         COMMENTED: 0,
       };
 
-      // Processing review data
       allReviewData.forEach(
         (reviewData, index) => {
           const prNumberValue =
@@ -219,7 +200,6 @@ const Home = () => {
             (review) => review.submitted_at
           );
 
-          // PR has never been reviewed
           if (reviewArr.length === 0) {
             const PR = pullData.find(
               (pr) =>
@@ -230,7 +210,6 @@ const Home = () => {
             return;
           }
 
-          // Finding first review date
           const firstReviewDate =
             reviewArr.reduce(
               (acc, review) => {
@@ -244,7 +223,6 @@ const Home = () => {
               reviewArr[0]
             );
 
-          // Finding PR
           const PR = pullData.find(
             (pr) =>
               pr.number === prNumberValue
@@ -253,7 +231,6 @@ const Home = () => {
           const createdDate =
             new Date(PR.created_at);
 
-          // Finding time taken for first review
           const firstReviewTime =
             (firstReviewDate -
               createdDate) /
@@ -265,14 +242,12 @@ const Home = () => {
 
           count++;
 
-          // Getting reviewer names
           const viewerArr =
             reviewData.map(
               (review) =>
                 review.user.login
             );
 
-          // Counting reviewers
           viewerArr.reduce(
             (acc, reviewer) => {
               acc[reviewer] =
@@ -283,7 +258,6 @@ const Home = () => {
             reviewersCount
           );
 
-          // Counting review activity
           reviewData.forEach((review) => {
             if (
               review.state === "APPROVED"
@@ -307,7 +281,6 @@ const Home = () => {
         }
       );
 
-      // Finding average first review time
       const sumAllTimesArr =
         allTimesArr.reduce(
           (acc, pr) => acc + pr,
@@ -321,7 +294,6 @@ const Home = () => {
               sumAllTimesArr / count
             ).toFixed(2);
 
-      // Sorting reviewers
       const reviewersArr =
         Object.entries(
           reviewersCount
@@ -334,7 +306,6 @@ const Home = () => {
       const top10Reviewers =
         reviewersArr.slice(0, 10);
 
-      // Counting PR authors
       const authorCounts = {};
 
       pullData.forEach((pr) => {
@@ -351,7 +322,6 @@ const Home = () => {
         }
       });
 
-      // Sorting authors
       const authorsList =
         Object.entries(authorCounts);
 
@@ -362,7 +332,6 @@ const Home = () => {
       const top10Authors =
         authorsList.slice(0, 10);
 
-      // Creating dashboard data
       const dashboardData = {
         totalPRs: pullData.length,
 
@@ -396,7 +365,6 @@ const Home = () => {
         prAge,
       };
 
-      // Opening the dashboard
       navigate(
         `/dashboard/${owner}/${repo}`,
         {
@@ -419,8 +387,6 @@ const Home = () => {
 
       <div className="homeContainer">
 
-        {/* ================= WELCOME ================= */}
-
         <section className="welcomeSection">
 
           <p className="welcomeText">
@@ -438,8 +404,6 @@ const Home = () => {
 
         </section>
 
-
-        {/* ================= REPOSITORY ANALYSIS ================= */}
 
         <section className="repoInputContainer">
 
@@ -464,6 +428,16 @@ const Home = () => {
               disabled={loading}
             />
 
+            <div className="errorMessageContainer">
+
+              {errorMsg && (
+                <p className="errorMessage">
+                  {errorMsg}
+                </p>
+              )}
+
+            </div>
+
             <button
               onClick={urlHandler}
               disabled={loading}
@@ -475,21 +449,6 @@ const Home = () => {
 
           </div>
 
-
-          {/* Reserved error space */}
-
-          <div className="errorMessageContainer">
-
-            {errorMsg && (
-              <p className="errorMessage">
-                {errorMsg}
-              </p>
-            )}
-
-          </div>
-
-
-          {/* Loader */}
 
           <div className="loaderContainer">
 
@@ -513,8 +472,6 @@ const Home = () => {
         </section>
 
 
-        {/* ================= WHY THIS DASHBOARD ================= */}
-
         <section className="featuresSection">
 
           <h2>
@@ -533,7 +490,6 @@ const Home = () => {
               </p>
             </div>
 
-
             <div className="featureItem">
               <h3>
                 Understand review performance
@@ -544,7 +500,6 @@ const Home = () => {
               </p>
             </div>
 
-
             <div className="featureItem">
               <h3>
                 Track team activity
@@ -554,7 +509,6 @@ const Home = () => {
                 See active reviewers and contributors.
               </p>
             </div>
-
 
             <div className="featureItem">
               <h3>

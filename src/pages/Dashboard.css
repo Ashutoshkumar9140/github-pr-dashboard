@@ -1,7 +1,3 @@
-/* =========================================================
-   BASIC SETUP
-========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -31,6 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
   flex-direction: column;
 
   background-color: #0d1117;
@@ -43,6 +40,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-direction: column;
 }
 
@@ -52,7 +50,9 @@ body {
 ========================================================= */
 
 .sectionHeading {
-  margin: 15px 0 25px;
+  width: 100%;
+
+  margin: 0;
 
   font-family:
     "Franklin Gothic Medium",
@@ -60,11 +60,12 @@ body {
     Arial,
     sans-serif;
 
-  font-size: clamp(2rem, 3vw, 4rem);
+  font-size: clamp(2rem, 3vw, 3rem);
 
   color: #f0f6fc;
 
   text-align: center;
+
   line-height: 1.2;
 }
 
@@ -94,7 +95,6 @@ p {
 
 /* =========================================================
    SECTION 1
-   PR OVERVIEW
 ========================================================= */
 
 .prOverviewContainer {
@@ -102,9 +102,11 @@ p {
   min-height: 40vh;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   background-color: #161b22;
 
@@ -123,18 +125,22 @@ p {
   align-items: center;
   justify-content: center;
 
+  margin: 0;
+
   border: 1px solid #30363d;
+
   border-radius: 8px;
 
   background-color: #21262d;
 
   padding: 18px 35px;
 
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(1.25rem, 2vw, 2rem);
 
   text-align: center;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.25);
 
   overflow-wrap: anywhere;
 }
@@ -143,6 +149,7 @@ p {
   width: 100%;
 
   display: flex;
+
   align-items: stretch;
   justify-content: space-around;
 
@@ -156,10 +163,13 @@ p {
   min-height: 220px;
 
   border: 1px solid #30363d;
+
   border-radius: 8px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: space-around;
 
@@ -167,13 +177,15 @@ p {
 
   padding: 30px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2);
 
   overflow-wrap: anywhere;
 }
 
 .openClosedPRs h3 {
   text-align: center;
+
   line-height: 1.5;
 }
 
@@ -188,7 +200,6 @@ p {
 
 /* =========================================================
    SECTION 2
-   ATTENTION NEEDED
 ========================================================= */
 
 #attentionContainer {
@@ -196,8 +207,10 @@ p {
   min-height: 50vh;
 
   display: flex;
+
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+
   flex-direction: column;
 
   background-color: #0d1117;
@@ -211,6 +224,7 @@ p {
   width: 100%;
 
   display: flex;
+
   align-items: stretch;
   justify-content: space-around;
 
@@ -222,20 +236,24 @@ p {
   min-height: 450px;
 
   display: flex;
+
   align-items: center;
   justify-content: space-around;
+
   flex-direction: column;
 
   gap: 25px;
 
   border: 1px solid #30363d;
+
   border-radius: 10px;
 
   padding: 30px;
 
   background-color: #161b22;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.25);
 
   overflow: hidden;
 }
@@ -246,6 +264,7 @@ p {
   margin: 0;
 
   text-align: center;
+
   line-height: 1.5;
 
   overflow-wrap: anywhere;
@@ -267,8 +286,10 @@ p {
   height: 270px;
 
   display: flex;
+
   align-items: flex-start;
   justify-content: flex-start;
+
   flex-direction: column;
 
   overflow-y: auto;
@@ -279,15 +300,11 @@ p {
   padding: 12px;
 
   border: 1px solid #30363d;
+
   border-radius: 6px;
 
   background-color: #0d1117;
 }
-
-
-/* =========================================================
-   ATTENTION LIST SCROLLBAR
-========================================================= */
 
 .attentionList::-webkit-scrollbar {
   width: 7px;
@@ -299,6 +316,7 @@ p {
 
 .attentionList::-webkit-scrollbar-thumb {
   background: #30363d;
+
   border-radius: 10px;
 }
 
@@ -308,19 +326,24 @@ p {
 
 .attentionListChild {
   width: 100%;
+
   flex-shrink: 0;
 
   display: flex;
+
   align-items: flex-start;
   justify-content: flex-start;
+
   flex-direction: column;
 
   padding: 13px;
 
   font-size: 0.9rem;
+
   line-height: 1.45;
 
   border: 1px solid #30363d;
+
   border-radius: 6px;
 
   background-color: #21262d;
@@ -345,11 +368,13 @@ p {
 
 button {
   height: 40px;
+
   min-width: 120px;
 
   padding: 0 18px;
 
   border: none;
+
   border-radius: 6px;
 
   background-color: #238636;
@@ -384,8 +409,10 @@ button:active {
   min-height: 40vh;
 
   display: flex;
+
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+
   flex-direction: column;
 
   background-color: #0c2d3f;
@@ -395,46 +422,99 @@ button:active {
   gap: 25px;
 }
 
-.reviewHealthContainerInner {
-  width: 100%;
+.reviewHealthDescription {
+  width: min(850px, 100%);
 
-  display: flex;
-  align-items: stretch;
-  justify-content: space-around;
+  margin: 0;
 
-  gap: 45px;
+  text-align: center;
 }
 
 
 /* =========================================================
-   REVIEW METRICS CARD
+   SECTION 3 CONTENT
 ========================================================= */
 
-.avg-revContainer {
-  width: 55%;
-  min-height: 330px;
+.reviewHealthContent {
+  width: min(1200px, 100%);
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(480px, 0.9fr);
+
+  align-items: stretch;
+
+  gap: 35px;
+}
+
+.reviewHealthLeft {
+  width: 100%;
 
   display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
+
   flex-direction: column;
+
+  gap: 25px;
+}
+
+
+/* =========================================================
+   REVIEW METRICS
+========================================================= */
+
+.reviewMetricsContainer {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.reviewMetricCard {
+  min-height: 190px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
 
   background-color: #161b22;
 
-  padding: 35px;
+  padding: 25px;
 
   border: 1px solid #30363d;
+
   border-radius: 8px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
-  overflow-wrap: anywhere;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.avg-revContainer > h3 {
-  line-height: 1.5;
+.reviewMetricCard h3 {
+  margin: 0;
 
-  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.reviewMetricValue {
+  margin: 20px 0 0;
+
+  color: #58a6ff;
+
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+
+  font-weight: 600;
+
+  text-align: center;
 }
 
 
@@ -442,79 +522,113 @@ button:active {
    REVIEW ACTIVITY
 ========================================================= */
 
-.reviewContainer {
+.reviewActivityCard {
   width: 100%;
 
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-direction: column;
 
-  border: 1px solid #30363d;
-  border-radius: 6px;
-
-  margin-top: 25px;
-
-  padding: 20px;
-
-  background-color: #21262d;
-}
-
-.reviewContainer h3 {
-  margin-top: 0;
-}
-
-.reviewContainerChild {
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-
-  padding-left: 25px;
-
-  line-height: 2;
-
-  margin-bottom: 0;
-}
-
-
-/* =========================================================
-   TOP REVIEWERS CARD
-========================================================= */
-
-.reviewersContainer {
-  width: 35%;
-  min-height: 330px;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
 
   background-color: #161b22;
 
-  padding: 35px;
+  padding: 25px;
 
   border: 1px solid #30363d;
+
   border-radius: 8px;
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-  overflow-wrap: anywhere;
+.reviewActivityCard h3 {
+  margin: 0 0 5px;
+}
+
+.reviewActivityCard > p {
+  margin: 0 0 15px;
+
+  color: #8b949e;
+}
+
+.reviewActivityList {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.reviewActivityItem {
+  width: 100%;
+
+  min-height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 5px;
+
+  border-bottom: 1px solid #30363d;
+}
+
+.reviewActivityItem:last-child {
+  border-bottom: none;
+}
+
+.reviewActivityItem span {
+  color: #c9d1d9;
+}
+
+.reviewActivityItem strong {
+  color: #f0f6fc;
+
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   TOP REVIEWERS
+========================================================= */
+
+.topReviewersCard {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-direction: column;
+
+  background-color: #161b22;
+
+  padding: 30px;
+
+  border: 1px solid #30363d;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2);
 
   gap: 15px;
 }
 
-.reviewersContainer > h3 {
-  margin: 5px 0 0;
-}
-
-.reviewersContainer > p {
+.topReviewersCard h3 {
   margin: 0;
 
   text-align: center;
+}
+
+.topReviewersCard > p {
+  margin: 0;
+
+  text-align: center;
+
+  color: #8b949e;
 }
 
 
@@ -526,9 +640,11 @@ button:active {
   width: 100%;
 
   display: flex;
+
   flex-direction: column;
 
   border: 1px solid #30363d;
+
   border-radius: 6px;
 
   overflow: hidden;
@@ -542,7 +658,8 @@ button:active {
 
   display: grid;
 
-  grid-template-columns: 70px minmax(0, 1fr) 90px;
+  grid-template-columns:
+    65px minmax(0, 1fr) 90px;
 
   align-items: center;
 }
@@ -584,6 +701,7 @@ button:active {
   padding: 8px 10px;
 
   overflow-wrap: anywhere;
+
   word-break: break-word;
 }
 
@@ -604,7 +722,6 @@ button:active {
 
 /* =========================================================
    SECTION 4
-   TEAM ACTIVITY
 ========================================================= */
 
 .teamActivityContainer {
@@ -612,8 +729,10 @@ button:active {
   min-height: 40vh;
 
   display: flex;
+
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+
   flex-direction: column;
 
   background-color: #1b2638;
@@ -623,12 +742,20 @@ button:active {
   gap: 25px;
 }
 
+.teamActivityContainer > p {
+  margin: 0;
+
+  text-align: center;
+}
+
 .teamActivityInner {
-  width: min(750px, 100%);
+  width: min(850px, 100%);
 
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   flex-direction: column;
 
   padding: 30px;
@@ -637,7 +764,7 @@ button:active {
 .teamActivityInner h3 {
   text-align: center;
 
-  margin-bottom: 10px;
+  margin: 0 0 15px;
 }
 
 
@@ -649,9 +776,11 @@ button:active {
   width: 100%;
 
   display: flex;
+
   flex-direction: column;
 
   border: 1px solid #30363d;
+
   border-radius: 6px;
 
   overflow: hidden;
@@ -665,7 +794,8 @@ button:active {
 
   display: grid;
 
-  grid-template-columns: 90px minmax(0, 1fr) 90px;
+  grid-template-columns:
+    80px minmax(0, 1fr) 150px;
 
   align-items: center;
 }
@@ -707,6 +837,7 @@ button:active {
   padding: 8px 12px;
 
   overflow-wrap: anywhere;
+
   word-break: break-word;
 }
 
@@ -724,6 +855,10 @@ button:active {
   color: #c9d1d9;
 }
 
+.pullRequestHeader {
+  white-space: nowrap;
+}
+
 
 /* =========================================================
    DASHBOARD ERROR
@@ -734,6 +869,7 @@ button:active {
   min-height: 100vh;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -746,8 +882,10 @@ button:active {
   width: min(600px, 100%);
 
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   flex-direction: column;
 
   gap: 15px;
@@ -759,9 +897,11 @@ button:active {
   background-color: #161b22;
 
   border: 1px solid #30363d;
+
   border-radius: 10px;
 
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.3);
 }
 
 .dashboardErrorContainer h1 {
@@ -781,17 +921,13 @@ button:active {
 
 /* =========================================================
    TABLET
-   769px — 1024px
 ========================================================= */
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1100px) {
 
   .sectionHeading {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 2.4rem;
   }
-
-
-  /* ---------------- PR Overview ---------------- */
 
   .prOverviewContainer {
     min-height: 450px;
@@ -814,9 +950,6 @@ button:active {
 
     padding: 22px;
   }
-
-
-  /* ---------------- Attention ---------------- */
 
   #attentionContainer {
     padding: 40px 25px;
@@ -849,39 +982,36 @@ button:active {
   }
 
 
-  /* ---------------- Review ---------------- */
+  /* Review */
 
   .reviewHealthContainerOuter {
     padding: 40px 25px;
+  }
+
+  .reviewHealthContent {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(400px, 0.9fr);
 
     gap: 25px;
   }
 
-  .reviewHealthContainerInner {
-    gap: 25px;
+  .reviewMetricsContainer {
+    grid-template-columns: 1fr;
   }
 
-  .avg-revContainer {
-    width: 55%;
-
-    min-height: 320px;
-
-    padding: 25px;
+  .reviewMetricCard {
+    min-height: 160px;
   }
 
-  .reviewersContainer {
-    width: 40%;
-
-    min-height: 320px;
-
+  .topReviewersCard {
     padding: 25px;
-
-    gap: 12px;
   }
 
   .reviewerTableHeader,
   .reviewerTableRow {
-    grid-template-columns: 55px minmax(0, 1fr) 75px;
+    grid-template-columns:
+      55px minmax(0, 1fr) 75px;
   }
 
   .reviewerTableHeader span,
@@ -892,28 +1022,28 @@ button:active {
   }
 
 
-  /* ---------------- Team ---------------- */
+  /* Team */
 
   .teamActivityContainer {
     padding: 40px 25px;
   }
 
   .teamActivityInner {
-    width: 80%;
+    width: 90%;
 
     padding: 20px;
   }
 
   .authorTableHeader,
   .authorTableRow {
-    grid-template-columns: 70px minmax(0, 1fr) 75px;
+    grid-template-columns:
+      70px minmax(0, 1fr) 135px;
   }
 }
 
 
 /* =========================================================
    MOBILE
-   768px AND BELOW
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -925,13 +1055,13 @@ button:active {
   .sectionHeading {
     font-size: clamp(1.7rem, 7vw, 2.5rem);
 
-    margin: 10px 0 20px;
+    margin: 0;
+
+    line-height: 1.2;
   }
 
 
-  /* =======================================================
-     PR OVERVIEW
-  ======================================================= */
+  /* PR OVERVIEW */
 
   .prOverviewContainer {
     width: 100%;
@@ -946,7 +1076,7 @@ button:active {
   #totalPrHeading {
     width: 95%;
 
-    font-size: clamp(1.2rem, 5vw, 2rem);
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
 
     padding: 14px;
   }
@@ -970,9 +1100,7 @@ button:active {
   }
 
 
-  /* =======================================================
-     ATTENTION
-  ======================================================= */
+  /* ATTENTION */
 
   #attentionContainer {
     width: 100%;
@@ -1015,9 +1143,7 @@ button:active {
   }
 
 
-  /* =======================================================
-     REVIEW HEALTH
-  ======================================================= */
+  /* REVIEW HEALTH */
 
   .reviewHealthContainerOuter {
     width: 100%;
@@ -1025,40 +1151,59 @@ button:active {
     min-height: auto;
 
     padding: 35px 12px;
+
+    gap: 20px;
   }
 
-  .reviewHealthContainerInner {
+  .reviewHealthDescription {
+    font-size: 0.9rem;
+  }
+
+  .reviewHealthContent {
     width: 100%;
 
-    flex-direction: column;
+    display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
     gap: 30px;
   }
 
-  .avg-revContainer {
+  .reviewHealthLeft {
+    width: 100%;
+  }
+
+  .reviewMetricsContainer {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .reviewMetricCard {
     width: 95%;
 
-    min-height: 400px;
+    margin: 0 auto;
+
+    min-height: 170px;
 
     padding: 22px;
   }
 
-  .reviewersContainer {
+  .reviewActivityCard {
     width: 95%;
 
-    min-height: 350px;
+    margin: 0 auto;
 
     padding: 22px;
   }
 
-  .reviewContainer {
-    margin-top: 15px;
+  .topReviewersCard {
+    width: 95%;
+
+    margin: 0 auto;
+
+    padding: 22px;
   }
-
-
-  /* ---------------- Reviewer Table ---------------- */
 
   .reviewerTable {
     width: 100%;
@@ -1066,7 +1211,8 @@ button:active {
 
   .reviewerTableHeader,
   .reviewerTableRow {
-    grid-template-columns: 55px minmax(0, 1fr) 70px;
+    grid-template-columns:
+      55px minmax(0, 1fr) 70px;
   }
 
   .reviewerTableHeader span,
@@ -1077,9 +1223,7 @@ button:active {
   }
 
 
-  /* =======================================================
-     TEAM ACTIVITY
-  ======================================================= */
+  /* TEAM */
 
   .teamActivityContainer {
     width: 100%;
@@ -1095,16 +1239,14 @@ button:active {
     padding: 20px 15px;
   }
 
-
-  /* ---------------- Author Table ---------------- */
-
   .authorTable {
     width: 100%;
   }
 
   .authorTableHeader,
   .authorTableRow {
-    grid-template-columns: 60px minmax(0, 1fr) 65px;
+    grid-template-columns:
+      60px minmax(0, 1fr) 110px;
   }
 
   .authorTableHeader span,
@@ -1114,10 +1256,12 @@ button:active {
     font-size: 0.85rem;
   }
 
+  .pullRequestHeader {
+    white-space: normal;
+  }
 
-  /* =======================================================
-     ERROR PAGE
-  ======================================================= */
+
+  /* ERROR */
 
   #dashboardError {
     padding: 20px 12px;
@@ -1131,7 +1275,6 @@ button:active {
 
 /* =========================================================
    VERY SMALL MOBILE
-   480px AND BELOW
 ========================================================= */
 
 @media (max-width: 480px) {
@@ -1139,11 +1282,6 @@ button:active {
   .sectionHeading {
     font-size: 1.7rem;
   }
-
-
-  /* =======================================================
-     PR OVERVIEW
-  ======================================================= */
 
   .prOverviewContainer {
     min-height: 600px;
@@ -1166,11 +1304,6 @@ button:active {
 
     padding: 15px;
   }
-
-
-  /* =======================================================
-     ATTENTION
-  ======================================================= */
 
   #attentionContainer {
     padding: 25px 5px;
@@ -1197,33 +1330,29 @@ button:active {
   }
 
 
-  /* =======================================================
-     REVIEW
-  ======================================================= */
+  /* REVIEW */
 
-  .avg-revContainer,
-  .reviewersContainer {
+  .reviewMetricCard,
+  .reviewActivityCard,
+  .topReviewersCard {
     width: 98%;
   }
 
-  .avg-revContainer {
-    min-height: 430px;
+  .reviewMetricCard {
+    min-height: 180px;
 
     padding: 18px;
   }
 
-  .reviewersContainer {
-    min-height: 350px;
-
+  .reviewActivityCard,
+  .topReviewersCard {
     padding: 18px;
   }
-
-
-  /* ---------------- Reviewer Table ---------------- */
 
   .reviewerTableHeader,
   .reviewerTableRow {
-    grid-template-columns: 45px minmax(0, 1fr) 60px;
+    grid-template-columns:
+      45px minmax(0, 1fr) 60px;
   }
 
   .reviewerTableHeader span,
@@ -1234,9 +1363,7 @@ button:active {
   }
 
 
-  /* =======================================================
-     TEAM
-  ======================================================= */
+  /* TEAM */
 
   .teamActivityInner {
     width: 98%;
@@ -1244,12 +1371,10 @@ button:active {
     padding: 15px 10px;
   }
 
-
-  /* ---------------- Author Table ---------------- */
-
   .authorTableHeader,
   .authorTableRow {
-    grid-template-columns: 45px minmax(0, 1fr) 55px;
+    grid-template-columns:
+      45px minmax(0, 1fr) 90px;
   }
 
   .authorTableHeader span,
@@ -1259,10 +1384,12 @@ button:active {
     font-size: 0.78rem;
   }
 
+  .pullRequestHeader {
+    white-space: normal;
+  }
 
-  /* =======================================================
-     ERROR
-  ======================================================= */
+
+  /* ERROR */
 
   .dashboardErrorContainer {
     padding: 25px 15px;

@@ -1,18 +1,52 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
+const formatDuration = (days) => {
+  if (typeof days !== "number" || Number.isNaN(days)) {
+    return days;
+  }
+
+  const totalHours = Math.round(days * 24);
+
+  if (totalHours < 1) {
+    return "Less than 1 hour";
+  }
+
+  const wholeDays = Math.floor(totalHours / 24);
+  const hours = totalHours % 24;
+
+  if (wholeDays === 0) {
+    return `${hours} ${hours === 1 ? "hour" : "hours"}`;
+  }
+
+  if (hours === 0) {
+    return `${wholeDays} ${
+      wholeDays === 1 ? "day" : "days"
+    }`;
+  }
+
+  return `${wholeDays} ${
+    wholeDays === 1 ? "day" : "days"
+  } ${hours} ${
+    hours === 1 ? "hour" : "hours"
+  }`;
+};
+
+
 const Dashboard = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const dashboardData = location.state;
 
-  // If someone refreshes the dashboard, the router state is lost.
   if (!dashboardData) {
     return (
       <main id="dashboardError">
         <div className="dashboardErrorContainer">
-          <h1>Dashboard Data Not Found</h1>
+
+          <h1>
+            Dashboard Data Not Found
+          </h1>
 
           <p>
             This dashboard needs data from a GitHub repository analysis.
@@ -25,6 +59,7 @@ const Dashboard = () => {
           <button onClick={() => navigate("/")}>
             Back to Home
           </button>
+
         </div>
       </main>
     );
@@ -35,10 +70,10 @@ const Dashboard = () => {
 
       {/* =====================================================
           SECTION 1
-          PR OVERVIEW
       ===================================================== */}
 
       <section className="sections">
+
         <div className="prOverviewContainer">
 
           <h1 className="sectionHeading">
@@ -50,8 +85,6 @@ const Dashboard = () => {
           </h2>
 
           <div className="openClosedContainer">
-
-            {/* OPEN PRs */}
 
             <div className="openClosedPRs">
 
@@ -73,8 +106,6 @@ const Dashboard = () => {
 
             </div>
 
-
-            {/* CLOSED PRs */}
 
             <div className="openClosedPRs">
 
@@ -100,12 +131,12 @@ const Dashboard = () => {
           </div>
 
         </div>
+
       </section>
 
 
       {/* =====================================================
           SECTION 2
-          ATTENTION NEEDED
       ===================================================== */}
 
       <section className="sections">
@@ -123,10 +154,6 @@ const Dashboard = () => {
 
           <div id="attentionChildContainer">
 
-
-            {/* =================================================
-                STALE PRs
-            ================================================= */}
 
             <div className="attectionChild">
 
@@ -158,10 +185,9 @@ const Dashboard = () => {
                     const updatedDate =
                       new Date(pr.updated_at);
 
-                    const days = (
+                    const days =
                       (now - updatedDate) /
-                      (1000 * 60 * 60 * 24)
-                    ).toFixed(2);
+                      (1000 * 60 * 60 * 24);
 
                     return (
                       <div
@@ -182,7 +208,8 @@ const Dashboard = () => {
                         </p>
 
                         <p>
-                          Last updated: {days} days ago
+                          Last updated:{" "}
+                          {formatDuration(days)} ago
                         </p>
 
                       </div>
@@ -195,10 +222,6 @@ const Dashboard = () => {
 
             </div>
 
-
-            {/* =================================================
-                OLD OPEN PRs
-            ================================================= */}
 
             <div className="attectionChild">
 
@@ -230,10 +253,9 @@ const Dashboard = () => {
                     const createdDate =
                       new Date(pr.created_at);
 
-                    const days = (
+                    const days =
                       (now - createdDate) /
-                      (1000 * 60 * 60 * 24)
-                    ).toFixed(2);
+                      (1000 * 60 * 60 * 24);
 
                     return (
                       <div
@@ -254,7 +276,8 @@ const Dashboard = () => {
                         </p>
 
                         <p>
-                          Created: {days} days ago
+                          Created:{" "}
+                          {formatDuration(days)} ago
                         </p>
 
                       </div>
@@ -267,10 +290,6 @@ const Dashboard = () => {
 
             </div>
 
-
-            {/* =================================================
-                NEVER REVIEWED PRs
-            ================================================= */}
 
             <div className="attectionChild">
 
@@ -300,10 +319,9 @@ const Dashboard = () => {
                     const createdDate =
                       new Date(pr.created_at);
 
-                    const days = (
+                    const days =
                       (now - createdDate) /
-                      (1000 * 60 * 60 * 24)
-                    ).toFixed(2);
+                      (1000 * 60 * 60 * 24);
 
                     return (
                       <div
@@ -324,7 +342,8 @@ const Dashboard = () => {
                         </p>
 
                         <p>
-                          Created: {days} days ago
+                          Created:{" "}
+                          {formatDuration(days)} ago
                         </p>
 
                       </div>
@@ -346,7 +365,6 @@ const Dashboard = () => {
 
       {/* =====================================================
           SECTION 3
-          REVIEW HEALTH
       ===================================================== */}
 
       <section className="sections">
@@ -357,189 +375,185 @@ const Dashboard = () => {
             Review Health
           </h2>
 
-          <p>
+          <p className="reviewHealthDescription">
             This section shows how quickly pull requests
             receive reviews and how long they take to get merged.
           </p>
 
 
-          {/* =================================================
-              REVIEW HEALTH METRICS
-          ================================================= */}
-
-          <div className="reviewMetricsContainer">
+          <div className="reviewHealthContent">
 
 
-            {/* FIRST REVIEW */}
+            {/* LEFT SIDE */}
 
-            <div className="reviewMetricCard">
+            <div className="reviewHealthLeft">
 
-              <h3>
-                Average Time to First Review
-              </h3>
+              <div className="reviewMetricsContainer">
 
-              <p className="reviewMetricValue">
-                {dashboardData.averageTimeToFirstReview}
-              </p>
+                <div className="reviewMetricCard">
 
-              <span>
-                days
-              </span>
+                  <h3>
+                    Average Time to First Review
+                  </h3>
 
-            </div>
-
-
-            {/* MERGE TIME */}
-
-            <div className="reviewMetricCard">
-
-              <h3>
-                Average Time to Merge
-              </h3>
-
-              <p className="reviewMetricValue">
-                {dashboardData.averageTimeToMerge}
-              </p>
-
-              <span>
-                days
-              </span>
-
-            </div>
-
-          </div>
-
-
-          {/* =================================================
-              REVIEW ACTIVITY
-          ================================================= */}
-
-          <div className="reviewActivityCard">
-
-            <h3>
-              Review Activity
-            </h3>
-
-            <p>
-              Number of reviews by review type.
-            </p>
-
-            <div className="reviewActivityList">
-
-              <div className="reviewActivityItem">
-
-                <span>
-                  Approved
-                </span>
-
-                <strong>
-                  {dashboardData.reviewActivity.APPROVED}
-                </strong>
-
-              </div>
-
-
-              <div className="reviewActivityItem">
-
-                <span>
-                  Changes Requested
-                </span>
-
-                <strong>
-                  {dashboardData.reviewActivity.CHANGES_REQUESTED}
-                </strong>
-
-              </div>
-
-
-              <div className="reviewActivityItem">
-
-                <span>
-                  Commented
-                </span>
-
-                <strong>
-                  {dashboardData.reviewActivity.COMMENTED}
-                </strong>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* =================================================
-              TOP REVIEWERS
-          ================================================= */}
-
-          <div className="topReviewersCard">
-
-            <h3>
-              Top Reviewers
-            </h3>
-
-            <p>
-              Reviewers ranked by the number of reviews
-              they submitted.
-            </p>
-
-
-            {dashboardData.top10Reviewers.length === 0 ? (
-
-              <p>
-                No reviewer data available.
-              </p>
-
-            ) : (
-
-              <div className="reviewerTable">
-
-                <div className="reviewerTableHeader">
-
-                  <span>
-                    Rank
-                  </span>
-
-                  <span>
-                    Reviewer
-                  </span>
-
-                  <span>
-                    Reviews
-                  </span>
+                  <p className="reviewMetricValue">
+                    {typeof dashboardData.averageTimeToFirstReview === "number"
+                      ? formatDuration(
+                          dashboardData.averageTimeToFirstReview
+                        )
+                      : dashboardData.averageTimeToFirstReview}
+                  </p>
 
                 </div>
 
 
-                {dashboardData.top10Reviewers.map(
-                  (reviewer, index) => (
+                <div className="reviewMetricCard">
 
-                    <div
-                      key={reviewer[0]}
-                      className="reviewerTableRow"
-                    >
+                  <h3>
+                    Average Time to Merge
+                  </h3>
 
-                      <span>
-                        {index + 1}
-                      </span>
+                  <p className="reviewMetricValue">
+                    {typeof dashboardData.averageTimeToMerge === "number"
+                      ? formatDuration(
+                          dashboardData.averageTimeToMerge
+                        )
+                      : dashboardData.averageTimeToMerge}
+                  </p>
 
-                      <span>
-                        {reviewer[0]}
-                      </span>
-
-                      <span>
-                        {reviewer[1]}
-                      </span>
-
-                    </div>
-
-                  )
-                )}
+                </div>
 
               </div>
 
-            )}
+
+              <div className="reviewActivityCard">
+
+                <h3>
+                  Review Activity
+                </h3>
+
+                <p>
+                  Number of reviews by review type.
+                </p>
+
+                <div className="reviewActivityList">
+
+                  <div className="reviewActivityItem">
+
+                    <span>
+                      Approved
+                    </span>
+
+                    <strong>
+                      {dashboardData.reviewActivity.APPROVED}
+                    </strong>
+
+                  </div>
+
+
+                  <div className="reviewActivityItem">
+
+                    <span>
+                      Changes Requested
+                    </span>
+
+                    <strong>
+                      {dashboardData.reviewActivity.CHANGES_REQUESTED}
+                    </strong>
+
+                  </div>
+
+
+                  <div className="reviewActivityItem">
+
+                    <span>
+                      Commented
+                    </span>
+
+                    <strong>
+                      {dashboardData.reviewActivity.COMMENTED}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* RIGHT SIDE */}
+
+            <div className="topReviewersCard">
+
+              <h3>
+                Top Reviewers
+              </h3>
+
+              <p>
+                Reviewers ranked by the number of reviews
+                they submitted.
+              </p>
+
+
+              {dashboardData.top10Reviewers.length === 0 ? (
+
+                <p>
+                  No reviewer data available.
+                </p>
+
+              ) : (
+
+                <div className="reviewerTable">
+
+                  <div className="reviewerTableHeader">
+
+                    <span>
+                      Rank
+                    </span>
+
+                    <span>
+                      Reviewer
+                    </span>
+
+                    <span>
+                      Reviews
+                    </span>
+
+                  </div>
+
+
+                  {dashboardData.top10Reviewers.map(
+                    (reviewer, index) => (
+
+                      <div
+                        key={reviewer[0]}
+                        className="reviewerTableRow"
+                      >
+
+                        <span>
+                          {index + 1}
+                        </span>
+
+                        <span>
+                          {reviewer[0]}
+                        </span>
+
+                        <span>
+                          {reviewer[1]}
+                        </span>
+
+                      </div>
+
+                    )
+                  )}
+
+                </div>
+
+              )}
+
+            </div>
 
           </div>
 
@@ -550,7 +564,6 @@ const Dashboard = () => {
 
       {/* =====================================================
           SECTION 4
-          TEAM ACTIVITY
       ===================================================== */}
 
       <section className="sections">
@@ -593,7 +606,7 @@ const Dashboard = () => {
                     Author
                   </span>
 
-                  <span>
+                  <span className="pullRequestHeader">
                     Pull Requests
                   </span>
 

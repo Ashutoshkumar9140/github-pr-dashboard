@@ -1,7 +1,3 @@
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -64,7 +60,7 @@ body {
 
 
 /* =========================================================
-   WELCOME SECTION
+   WELCOME
 ========================================================= */
 
 .welcomeSection {
@@ -81,23 +77,17 @@ body {
   text-align: center;
 }
 
-
-/* Small welcome text */
-
 .welcomeText {
   margin: 0;
 
   color: #58a6ff;
 
-  font-size: 1.05rem;
+  font-size: 1.25rem;
 
   font-weight: 600;
 
   letter-spacing: 0.4px;
 }
-
-
-/* Main title */
 
 .homeTitle {
   margin: 0;
@@ -118,9 +108,6 @@ body {
 
   overflow-wrap: anywhere;
 }
-
-
-/* Short description */
 
 .homeDescription {
   width: 90%;
@@ -168,11 +155,6 @@ body {
     0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-
-/* =========================================================
-   REPOSITORY CARD HEADING
-========================================================= */
-
 .repoInputContainer h2 {
   margin: 0;
 
@@ -184,9 +166,6 @@ body {
 
   text-align: center;
 }
-
-
-/* Instruction line */
 
 .repoInputContainer > p {
   width: 100%;
@@ -204,27 +183,19 @@ body {
 
 
 /* =========================================================
-   LABEL
+   INPUT GROUP
 ========================================================= */
 
-.repoInputContainer label {
+.repoInputGroup {
   width: 100%;
 
-  margin-top: 5px;
+  display: flex;
+  align-items: center;
 
-  color: #c9d1d9;
+  flex-direction: column;
 
-  font-size: 0.9rem;
-
-  font-weight: 500;
-
-  text-align: left;
+  gap: 12px;
 }
-
-
-/* =========================================================
-   INPUT
-========================================================= */
 
 #repoUrl {
   width: 100%;
@@ -250,11 +221,9 @@ body {
     box-shadow 0.2s ease;
 }
 
-
 #repoUrl::placeholder {
   color: #6e7681;
 }
-
 
 #repoUrl:focus {
   border-color: #58a6ff;
@@ -265,18 +234,21 @@ body {
 
 
 /* =========================================================
-   ERROR SPACE
+   ERROR
 ========================================================= */
 
-/*
-   This area keeps the card from jumping when an error
-   appears or disappears.
-*/
-
-.errorMessage {
+.errorMessageContainer {
   width: 100%;
 
   min-height: 42px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.errorMessage {
+  width: 100%;
 
   margin: 0;
 
@@ -299,7 +271,7 @@ body {
 
 
 /* =========================================================
-   ANALYZE BUTTON
+   BUTTON
 ========================================================= */
 
 .repoInputContainer button {
@@ -307,7 +279,7 @@ body {
 
   height: 45px;
 
-  margin-top: 2px;
+  margin: 0 auto;
 
   border: none;
 
@@ -329,18 +301,15 @@ body {
     opacity 0.2s ease;
 }
 
-
 .repoInputContainer button:hover {
   background-color: #2ea043;
 }
-
 
 .repoInputContainer button:active {
   background-color: #1f6f2d;
 
   transform: scale(0.98);
 }
-
 
 .repoInputContainer button:disabled {
   cursor: not-allowed;
@@ -371,7 +340,6 @@ body {
   text-align: center;
 }
 
-
 .loader {
   width: 32px;
   height: 32px;
@@ -385,7 +353,6 @@ body {
   animation: spinLoader 0.9s linear infinite;
 }
 
-
 .loaderContainer p {
   margin: 0;
 
@@ -393,7 +360,6 @@ body {
 
   font-size: 0.9rem;
 }
-
 
 .loaderContainer span {
   color: #6e7681;
@@ -403,9 +369,7 @@ body {
   line-height: 1.4;
 }
 
-
 @keyframes spinLoader {
-
   from {
     transform: rotate(0deg);
   }
@@ -413,7 +377,6 @@ body {
   to {
     transform: rotate(360deg);
   }
-
 }
 
 
@@ -442,9 +405,6 @@ body {
   border-radius: 10px;
 }
 
-
-/* Section heading */
-
 .featuresSection h2 {
   margin: 0;
 
@@ -457,11 +417,6 @@ body {
   text-align: center;
 }
 
-
-/* =========================================================
-   INFORMATION POINTS
-========================================================= */
-
 .featuresList {
   width: 100%;
 
@@ -471,7 +426,6 @@ body {
 
   gap: 12px;
 }
-
 
 .featuresList div {
   width: 100%;
@@ -489,13 +443,11 @@ body {
     transform 0.2s ease;
 }
 
-
 .featuresList div:hover {
   border-color: #484f58;
 
   transform: translateY(-2px);
 }
-
 
 .featuresList h3 {
   margin: 0;
@@ -512,7 +464,6 @@ body {
 
 /* =========================================================
    TABLET
-   769px — 1024px
 ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -545,7 +496,6 @@ body {
 
 /* =========================================================
    MOBILE
-   768px AND BELOW
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -562,15 +512,12 @@ body {
     gap: 32px;
   }
 
-
-  /* Welcome */
-
   .welcomeSection {
     gap: 9px;
   }
 
   .welcomeText {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 
   .homeTitle {
@@ -586,9 +533,6 @@ body {
 
     font-size: 0.95rem;
   }
-
-
-  /* Repository card */
 
   .repoInputContainer {
     width: 100%;
@@ -608,10 +552,6 @@ body {
     font-size: 0.88rem;
   }
 
-  .repoInputContainer label {
-    font-size: 0.88rem;
-  }
-
   #repoUrl {
     height: 49px;
 
@@ -620,9 +560,11 @@ body {
     padding: 0 13px;
   }
 
-  .errorMessage {
+  .errorMessageContainer {
     min-height: 40px;
+  }
 
+  .errorMessage {
     font-size: 0.84rem;
   }
 
@@ -634,15 +576,9 @@ body {
     font-size: 0.92rem;
   }
 
-
-  /* Loader */
-
   .loaderContainer {
     min-height: 90px;
   }
-
-
-  /* Information */
 
   .featuresSection {
     width: 100%;
@@ -674,7 +610,6 @@ body {
 
 /* =========================================================
    VERY SMALL MOBILE
-   480px AND BELOW
 ========================================================= */
 
 @media (max-width: 480px) {
@@ -687,11 +622,8 @@ body {
     gap: 27px;
   }
 
-
-  /* Welcome */
-
   .welcomeText {
-    font-size: 0.88rem;
+    font-size: 1rem;
   }
 
   .homeTitle {
@@ -705,9 +637,6 @@ body {
 
     line-height: 1.5;
   }
-
-
-  /* Repository card */
 
   .repoInputContainer {
     min-height: 350px;
@@ -727,10 +656,6 @@ body {
     font-size: 0.82rem;
   }
 
-  .repoInputContainer label {
-    font-size: 0.85rem;
-  }
-
   #repoUrl {
     height: 46px;
 
@@ -739,19 +664,15 @@ body {
     padding: 0 11px;
   }
 
-
-  /* Error */
+  .errorMessageContainer {
+    min-height: 40px;
+  }
 
   .errorMessage {
-    min-height: 40px;
-
     padding: 9px 10px;
 
     font-size: 0.8rem;
   }
-
-
-  /* Button */
 
   .repoInputContainer button {
     width: 160px;
@@ -760,9 +681,6 @@ body {
 
     font-size: 0.88rem;
   }
-
-
-  /* Loader */
 
   .loaderContainer {
     min-height: 88px;
@@ -780,9 +698,6 @@ body {
   .loaderContainer span {
     font-size: 0.72rem;
   }
-
-
-  /* Information */
 
   .featuresSection {
     padding: 20px 12px;
