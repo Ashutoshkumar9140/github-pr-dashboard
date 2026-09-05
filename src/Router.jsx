@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 
 const router = createHashRouter([
-  // ................ Application routes ................
   { path: "/", element: <Home /> },
   { path: "/dashboard/:owner/:repo", element: <Dashboard /> },
 ]);

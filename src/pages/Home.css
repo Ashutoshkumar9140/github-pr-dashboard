@@ -8,217 +8,131 @@ html {
 }
 
 body {
+  background-color: #0d1117;
   margin: 0;
-  padding: 0;
-  width: 100%;
-
-  background-color: #0d1117;
-  color: #e6edf3;
-
-  font-family: Arial, Helvetica, sans-serif;
-
   overflow-x: hidden;
-}
-
-
-/* =========================================================
-   HOME PAGE
-========================================================= */
-
-#homePage {
+  color: #e6edf3;
   width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  flex-direction: column;
-
-  padding: 60px 25px;
-
-  background-color: #0d1117;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* .....................................HOME PAGE........................................ */
+#homePage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  background-color: #0d1117;
+  min-height: 100vh;
+  padding: 60px 25px;
+}
 
-/* =========================================================
-   HOME CONTAINER
-========================================================= */
-
+/* .....................................HOME CONTAINER........................................ */
 .homeContainer {
   width: 100%;
-  max-width: 900px;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  flex-direction: column;
-
   gap: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 900px;
+  flex-direction: column;
 }
 
-
-/* =========================================================
-   WELCOME
-========================================================= */
-
+/* .....................................WELCOME........................................ */
 .welcomeSection {
   width: 100%;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  flex-direction: column;
-
+  align-items: center;
   gap: 10px;
-
   text-align: center;
+  flex-direction: column;
 }
 
 .welcomeText {
-  margin: 0;
-
-  color: #58a6ff;
-
   font-size: 1.25rem;
-
-  font-weight: 600;
-
   letter-spacing: 0.4px;
+  color: #58a6ff;
+  font-weight: 600;
+  margin: 0;
 }
 
 .homeTitle {
-  margin: 0;
-
-  font-family:
-    "Franklin Gothic Medium",
-    "Arial Narrow",
-    Arial,
-    sans-serif;
-
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
-
-  line-height: 1.15;
-
-  text-align: center;
-
   color: #f0f6fc;
-
   overflow-wrap: anywhere;
+  margin: 0;
+  text-align: center;
+  line-height: 1.15;
 }
 
 .homeDescription {
-  width: 90%;
-  max-width: 600px;
-
-  margin: 0;
-
   font-size: 1rem;
-
-  line-height: 1.5;
-
-  text-align: center;
-
   color: #8b949e;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  margin: 0;
 }
 
-
-/* =========================================================
-   REPOSITORY CARD
-========================================================= */
-
+/* .....................................REPOSITORY CARD........................................ */
 .repoInputContainer {
-  width: 100%;
-  max-width: 680px;
-
   min-height: 330px;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  flex-direction: column;
-
-  gap: 16px;
-
-  padding: 38px 42px;
-
-  background-color: #161b22;
-
-  border: 1px solid #30363d;
-
+  width: 100%;
   border-radius: 12px;
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.25);
+  max-width: 680px;
+  background-color: #161b22;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  gap: 16px;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #30363d;
+  padding: 38px 42px;
 }
 
 .repoInputContainer h2 {
-  margin: 0;
-
   color: #f0f6fc;
-
   font-size: 1.5rem;
-
+  margin: 0;
   font-weight: 600;
-
   text-align: center;
 }
 
 .repoInputContainer > p {
-  width: 100%;
-
-  margin: 0;
-
-  color: #8b949e;
-
-  font-size: 0.95rem;
-
-  line-height: 1.5;
-
   text-align: center;
+  color: #8b949e;
+  line-height: 1.5;
+  width: 100%;
+  margin: 0;
+  font-size: 0.95rem;
 }
 
-
-/* =========================================================
-   INPUT GROUP
-========================================================= */
-
+/* .....................................INPUT GROUP........................................ */
 .repoInputGroup {
+  flex-direction: column;
+  gap: 12px;
   width: 100%;
-
   display: flex;
   align-items: center;
-
-  flex-direction: column;
-
-  gap: 12px;
 }
 
 #repoUrl {
-  width: 100%;
-
-  height: 52px;
-
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   padding: 0 16px;
-
   border: 1px solid #484f58;
-
-  border-radius: 7px;
-
-  outline: none;
-
-  background-color: #0d1117;
-
-  color: #e6edf3;
-
   font-size: 1rem;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  height: 52px;
+  background-color: #0d1117;
+  outline: none;
+  color: #e6edf3;
+  border-radius: 7px;
+  width: 100%;
 }
 
 #repoUrl::placeholder {
@@ -226,79 +140,45 @@ body {
 }
 
 #repoUrl:focus {
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
   border-color: #58a6ff;
-
-  box-shadow:
-    0 0 0 3px rgba(88, 166, 255, 0.15);
 }
 
-
-/* =========================================================
-   ERROR
-========================================================= */
-
+/* .....................................ERROR........................................ */
 .errorMessageContainer {
-  width: 100%;
-
-  min-height: 42px;
-
   display: flex;
-  align-items: flex-start;
   justify-content: center;
+  align-items: flex-start;
+  min-height: 42px;
+  width: 100%;
 }
 
 .errorMessage {
-  width: 100%;
-
-  margin: 0;
-
-  padding: 10px 13px;
-
-  border: 1px solid #da3633;
-
-  border-radius: 6px;
-
-  background-color: rgba(218, 54, 51, 0.1);
-
-  color: #ff7b72;
-
-  font-size: 0.88rem;
-
   line-height: 1.4;
-
+  width: 100%;
+  font-size: 0.88rem;
+  margin: 0;
+  padding: 10px 13px;
   overflow-wrap: anywhere;
+  color: #ff7b72;
+  border: 1px solid #da3633;
+  background-color: rgba(218, 54, 51, 0.1);
+  border-radius: 6px;
 }
 
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
+/* .....................................BUTTON........................................ */
 .repoInputContainer button {
-  width: 190px;
-
-  height: 45px;
-
-  margin: 0 auto;
-
-  border: none;
-
-  border-radius: 7px;
-
-  background-color: #238636;
-
-  color: #ffffff;
-
   font-size: 0.95rem;
-
-  font-weight: 600;
-
+  margin: 0 auto;
   cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    transform 0.1s ease,
-    opacity 0.2s ease;
+  background-color: #238636;
+  border: none;
+  width: 190px;
+  transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  font-weight: 600;
+  color: #ffffff;
+  height: 45px;
+  border-radius: 7px;
 }
 
 .repoInputContainer button:hover {
@@ -307,417 +187,324 @@ body {
 
 .repoInputContainer button:active {
   background-color: #1f6f2d;
-
   transform: scale(0.98);
 }
 
 .repoInputContainer button:disabled {
   cursor: not-allowed;
-
   opacity: 0.7;
 }
 
-
-/* =========================================================
-   LOADER
-========================================================= */
-
+/* .....................................LOADER........................................ */
 .loaderContainer {
-  width: 100%;
-
-  min-height: 95px;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
   flex-direction: column;
-
-  gap: 8px;
-
-  padding-top: 4px;
-
   text-align: center;
+  padding-top: 4px;
+  width: 100%;
+  min-height: 95px;
+  gap: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .loader {
+  border-top: 4px solid #58a6ff;
+  border-radius: 50%;
   width: 32px;
   height: 32px;
-
   border: 4px solid #30363d;
-
-  border-top: 4px solid #58a6ff;
-
-  border-radius: 50%;
-
   animation: spinLoader 0.9s linear infinite;
 }
 
 .loaderContainer p {
-  margin: 0;
-
-  color: #8b949e;
-
   font-size: 0.9rem;
+  margin: 0;
+  color: #8b949e;
 }
 
 .loaderContainer span {
   color: #6e7681;
-
-  font-size: 0.78rem;
-
   line-height: 1.4;
+  font-size: 0.78rem;
 }
 
 @keyframes spinLoader {
   from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  transform: rotate(0deg);
 }
 
+  to {
+  transform: rotate(360deg);
+}
+}
 
-/* =========================================================
-   INFORMATION SECTION
-========================================================= */
-
+/* .....................................INFORMATION SECTION........................................ */
 .featuresSection {
-  width: 100%;
-  max-width: 780px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-
-  gap: 18px;
-
   padding: 25px 30px;
-
-  background-color: #161b22;
-
-  border: 1px solid #30363d;
-
   border-radius: 10px;
+  border: 1px solid #30363d;
+  gap: 18px;
+  flex-direction: column;
+  max-width: 780px;
+  background-color: #161b22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .featuresSection h2 {
   margin: 0;
-
-  color: #f0f6fc;
-
-  font-size: 1.3rem;
-
   font-weight: 600;
-
   text-align: center;
+  color: #f0f6fc;
+  font-size: 1.3rem;
 }
 
 .featuresList {
-  width: 100%;
-
   display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
+  width: 100%;
   gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .featuresList div {
   width: 100%;
-
   padding: 15px 18px;
-
-  background-color: #0d1117;
-
-  border: 1px solid #30363d;
-
   border-radius: 7px;
-
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
 }
 
 .featuresList div:hover {
   border-color: #484f58;
-
   transform: translateY(-2px);
 }
 
 .featuresList h3 {
-  margin: 0;
-
-  color: #c9d1d9;
-
-  font-size: 0.88rem;
-
   font-weight: 500;
-
+  font-size: 0.88rem;
+  margin: 0;
+  color: #c9d1d9;
   line-height: 1.45;
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
-
+/* .....................................TABLET........................................ */
 @media (min-width: 769px) and (max-width: 1024px) {
-
   #homePage {
-    padding: 50px 25px;
-  }
-
-  .homeContainer {
-    max-width: 850px;
-
-    gap: 40px;
-  }
-
-  .homeTitle {
-    font-size: clamp(2.3rem, 5vw, 3.3rem);
-  }
-
-  .repoInputContainer {
-    max-width: 650px;
-
-    padding: 35px;
-  }
-
-  .featuresSection {
-    max-width: 750px;
-  }
+  padding: 50px 25px;
 }
 
+  .homeContainer {
+  gap: 40px;
+  max-width: 850px;
+}
 
-/* =========================================================
-   MOBILE
-========================================================= */
+  .homeTitle {
+  font-size: clamp(2.3rem, 5vw, 3.3rem);
+}
 
+  .repoInputContainer {
+  padding: 35px;
+  max-width: 650px;
+}
+
+  .featuresSection {
+  max-width: 750px;
+}
+}
+
+/* .....................................MOBILE........................................ */
 @media (max-width: 768px) {
-
   #homePage {
-    padding: 40px 15px;
-  }
+  padding: 40px 15px;
+}
 
   .homeContainer {
-    width: 100%;
-
-    max-width: 650px;
-
-    gap: 32px;
-  }
+  width: 100%;
+  gap: 32px;
+  max-width: 650px;
+}
 
   .welcomeSection {
-    gap: 9px;
-  }
-
-  .welcomeText {
-    font-size: 1.1rem;
-  }
-
-  .homeTitle {
-    width: 100%;
-
-    font-size: clamp(2rem, 8vw, 2.8rem);
-
-    line-height: 1.2;
-  }
-
-  .homeDescription {
-    width: 95%;
-
-    font-size: 0.95rem;
-  }
-
-  .repoInputContainer {
-    width: 100%;
-
-    min-height: 340px;
-
-    padding: 30px 22px;
-
-    gap: 15px;
-  }
-
-  .repoInputContainer h2 {
-    font-size: 1.35rem;
-  }
-
-  .repoInputContainer > p {
-    font-size: 0.88rem;
-  }
-
-  #repoUrl {
-    height: 49px;
-
-    font-size: 0.94rem;
-
-    padding: 0 13px;
-  }
-
-  .errorMessageContainer {
-    min-height: 40px;
-  }
-
-  .errorMessage {
-    font-size: 0.84rem;
-  }
-
-  .repoInputContainer button {
-    width: 175px;
-
-    height: 43px;
-
-    font-size: 0.92rem;
-  }
-
-  .loaderContainer {
-    min-height: 90px;
-  }
-
-  .featuresSection {
-    width: 100%;
-
-    padding: 22px 18px;
-
-    gap: 16px;
-  }
-
-  .featuresSection h2 {
-    font-size: 1.25rem;
-  }
-
-  .featuresList {
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-  }
-
-  .featuresList div {
-    padding: 14px 16px;
-  }
-
-  .featuresList h3 {
-    font-size: 0.86rem;
-  }
+  gap: 9px;
 }
 
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-  #homePage {
-    padding: 30px 10px;
-  }
-
-  .homeContainer {
-    gap: 27px;
-  }
-
   .welcomeText {
-    font-size: 1rem;
-  }
+  font-size: 1.1rem;
+}
 
   .homeTitle {
-    font-size: 1.9rem;
-  }
+  line-height: 1.2;
+  width: 100%;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+}
 
   .homeDescription {
-    width: 100%;
-
-    font-size: 0.86rem;
-
-    line-height: 1.5;
-  }
+  width: 95%;
+  font-size: 0.95rem;
+}
 
   .repoInputContainer {
-    min-height: 350px;
-
-    padding: 25px 14px;
-
-    border-radius: 9px;
-
-    gap: 14px;
-  }
+  padding: 30px 22px;
+  gap: 15px;
+  width: 100%;
+  min-height: 340px;
+}
 
   .repoInputContainer h2 {
-    font-size: 1.2rem;
-  }
+  font-size: 1.35rem;
+}
 
   .repoInputContainer > p {
-    font-size: 0.82rem;
-  }
+  font-size: 0.88rem;
+}
 
   #repoUrl {
-    height: 46px;
-
-    font-size: 0.84rem;
-
-    padding: 0 11px;
-  }
+  font-size: 0.94rem;
+  height: 49px;
+  padding: 0 13px;
+}
 
   .errorMessageContainer {
-    min-height: 40px;
-  }
+  min-height: 40px;
+}
 
   .errorMessage {
-    padding: 9px 10px;
-
-    font-size: 0.8rem;
-  }
+  font-size: 0.84rem;
+}
 
   .repoInputContainer button {
-    width: 160px;
-
-    height: 40px;
-
-    font-size: 0.88rem;
-  }
+  font-size: 0.92rem;
+  height: 43px;
+  width: 175px;
+}
 
   .loaderContainer {
-    min-height: 88px;
-  }
-
-  .loader {
-    width: 30px;
-    height: 30px;
-  }
-
-  .loaderContainer p {
-    font-size: 0.82rem;
-  }
-
-  .loaderContainer span {
-    font-size: 0.72rem;
-  }
+  min-height: 90px;
+}
 
   .featuresSection {
-    padding: 20px 12px;
-
-    gap: 14px;
-  }
+  width: 100%;
+  gap: 16px;
+  padding: 22px 18px;
+}
 
   .featuresSection h2 {
-    font-size: 1.15rem;
-  }
+  font-size: 1.25rem;
+}
 
   .featuresList {
-    gap: 9px;
-  }
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
 
   .featuresList div {
-    padding: 13px;
-  }
+  padding: 14px 16px;
+}
 
   .featuresList h3 {
-    font-size: 0.82rem;
-  }
+  font-size: 0.86rem;
+}
+}
+
+/* .....................................MOBILE........................................ */
+@media (max-width: 480px) {
+  #homePage {
+  padding: 30px 10px;
+}
+
+  .homeContainer {
+  gap: 27px;
+}
+
+  .welcomeText {
+  font-size: 1rem;
+}
+
+  .homeTitle {
+  font-size: 1.9rem;
+}
+
+  .homeDescription {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  width: 100%;
+}
+
+  .repoInputContainer {
+  border-radius: 9px;
+  padding: 25px 14px;
+  min-height: 350px;
+  gap: 14px;
+}
+
+  .repoInputContainer h2 {
+  font-size: 1.2rem;
+}
+
+  .repoInputContainer > p {
+  font-size: 0.82rem;
+}
+
+  #repoUrl {
+  font-size: 0.84rem;
+  padding: 0 11px;
+  height: 46px;
+}
+
+  .errorMessageContainer {
+  min-height: 40px;
+}
+
+  .errorMessage {
+  padding: 9px 10px;
+  font-size: 0.8rem;
+}
+
+  .repoInputContainer button {
+  font-size: 0.88rem;
+  height: 40px;
+  width: 160px;
+}
+
+  .loaderContainer {
+  min-height: 88px;
+}
+
+  .loader {
+  height: 30px;
+  width: 30px;
+}
+
+  .loaderContainer p {
+  font-size: 0.82rem;
+}
+
+  .loaderContainer span {
+  font-size: 0.72rem;
+}
+
+  .featuresSection {
+  padding: 20px 12px;
+  gap: 14px;
+}
+
+  .featuresSection h2 {
+  font-size: 1.15rem;
+}
+
+  .featuresList {
+  gap: 9px;
+}
+
+  .featuresList div {
+  padding: 13px;
+}
+
+  .featuresList h3 {
+  font-size: 0.82rem;
+}
 }

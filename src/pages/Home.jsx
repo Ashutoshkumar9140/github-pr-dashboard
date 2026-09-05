@@ -25,6 +25,7 @@ const Home = () => {
 
     try {
       // ................ Get repository owner and name ................
+
       const urlArray = inputUrl.trim().split("/");
       const indexOfGithub = urlArray.indexOf("github.com");
       if (indexOfGithub === -1)
@@ -35,6 +36,7 @@ const Home = () => {
       if (!owner || !repo) return setErrorMsg("Invalid GitHub repository URL.");
 
       // ................ Fetch repository pull requests ................
+
       const response = await fetch(`${API_URL}?repo=${owner}/${repo}`);
       if (!response.ok)
         return setErrorMsg(
@@ -56,33 +58,42 @@ const Home = () => {
         return setErrorMsg("This repository has no pull requests.");
 
       // ................ Calculate PR overview ................
+
       const openPRs = pullData.filter((pr) => pr.state === "open");
+
       const closedPRs = pullData.filter((pr) => pr.state === "closed");
+
       const mergedPRs = pullData.filter(
         (pr) => pr.state === "closed" && pr.merged_at !== null,
       );
+
       const draftPRs = pullData.filter((pr) => pr.draft === true);
+
       const readyPRs = pullData.filter(
         (pr) => pr.state === "open" && pr.draft === false,
       );
       const getAgeInDays = (date) =>
         (new Date() - new Date(date)) / (1000 * 60 * 60 * 24);
+
       const stalePRs = pullData.filter(
         (pr) =>
           pr.state === "open" &&
           !pr.draft &&
           getAgeInDays(pr.updated_at) >= staleDays,
       );
+
       const oldPRs = pullData.filter(
         (pr) => pr.state === "open" && getAgeInDays(pr.created_at) >= prAge,
       );
 
       // ................ Calculate merge time ........................
+
       const mergedPRsLife = mergedPRs.map(
         (pr) =>
           (new Date(pr.merged_at) - new Date(pr.created_at)) /
           (1000 * 60 * 60 * 24),
       );
+
       const totalMergedPRsLife = mergedPRsLife.reduce((acc, pr) => acc + pr, 0);
       const averageTime =
         mergedPRs.length === 0
@@ -90,6 +101,7 @@ const Home = () => {
           : (totalMergedPRsLife / mergedPRs.length).toFixed(2);
 
       // ................ Fetch and analyze reviews ................
+
       const prNumber = pullData.map((pr) => pr.number);
       const allReviewData = await Promise.all(
         prNumber.map((number) =>
@@ -153,6 +165,7 @@ const Home = () => {
         .slice(0, 10);
 
       // ................ Open the dashboard ..........................
+
       navigate(`/dashboard/${owner}/${repo}`, {
         state: {
           totalPRs: pullData.length,
@@ -187,7 +200,9 @@ const Home = () => {
   return (
     <main id="homePage">
       <div className="homeContainer">
+
         {/* ................ Section 1: Welcome .......................... */}
+
         <section className="welcomeSection">
           <p className="welcomeText">Welcome to</p>
           <h1 className="homeTitle">GitHub PR Dashboard</h1>
@@ -198,6 +213,7 @@ const Home = () => {
         </section>
 
         {/* ................ Section 2: Repository Input .................. */}
+
         <section className="repoInputContainer">
           <h2>Analyze Your Repository</h2>
           <p className="repoInstruction">
@@ -233,6 +249,7 @@ const Home = () => {
         </section>
 
         {/* ................ Section 3: Features ........................... */}
+
         <section className="featuresSection">
           <h2>Why this dashboard?</h2>
           <div className="featuresList">

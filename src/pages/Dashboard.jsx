@@ -33,6 +33,7 @@ const Dashboard = () => {
   return (
     <div id="mainDiv">
       {/* ................ Section 1: PR Overview ................ */}
+
       <section className="sections">
         <div className="prOverviewContainer">
           <h1 className="sectionHeading">PR Overview</h1>
@@ -59,6 +60,7 @@ const Dashboard = () => {
       </section>
 
       {/* ................ Section 2: Attention Needed ................ */}
+
       <section className="sections">
         <div id="attentionContainer">
           <h2 className="sectionHeading">Attention Needed</h2>
@@ -68,6 +70,7 @@ const Dashboard = () => {
           </p>
           <div id="attentionChildContainer">
             {/* STALE PRs ...................................... */}
+
             <div className="attectionChild">
               <h3>
                 Stale Pull Requests ({dashboardData.staleDays}+ days):{" "}
@@ -98,6 +101,7 @@ const Dashboard = () => {
             </div>
 
             {/* OLD OPEN PRs .................................. */}
+
             <div className="attectionChild">
               <h3>
                 Old Open Pull Requests ({dashboardData.prAge}+ days):{" "}
@@ -126,6 +130,7 @@ const Dashboard = () => {
             </div>
 
             {/* NEVER REVIEWED PRs ................................ */}
+
             <div className="attectionChild">
               <h3>
                 Never Reviewed Pull Requests:{" "}
@@ -157,6 +162,7 @@ const Dashboard = () => {
       </section>
 
       {/* ................ Section 3: Review Health ................ */}
+
       <section className="sections">
         <div className="reviewHealthContainerOuter">
           <h2 className="sectionHeading">Review Health</h2>
@@ -167,6 +173,7 @@ const Dashboard = () => {
           <div className="reviewHealthContent">
             <div className="reviewHealthLeft">
               {/* REVIEW METRICS ................................... */}
+
               <div className="reviewMetricsContainer">
                 <div className="reviewMetricCard">
                   <h3>Average Time to First Review</h3>
@@ -183,7 +190,9 @@ const Dashboard = () => {
                   </p>
                 </div>
               </div>
+
               {/* REVIEW ACTIVITY ............................ */}
+
               <div className="reviewActivityCard">
                 <h3>Review Activity</h3>
                 <p>Number of reviews by review type.</p>
@@ -205,7 +214,9 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
+
             {/* TOP REVIEWERS .................................. */}
+
             <div className="topReviewersCard">
               <h3>Top Reviewers</h3>
               <p>Reviewers ranked by the number of reviews they submitted.</p>
@@ -233,6 +244,7 @@ const Dashboard = () => {
       </section>
 
       {/* ................ Section 4: Team Activity ................ */}
+
       <section className="sections">
         <div className="teamActivityContainer">
           <h2 className="sectionHeading">Team Activity</h2>
